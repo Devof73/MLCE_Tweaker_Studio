@@ -518,10 +518,10 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.lb_Filedir.AutoSize = true;
             this.lb_Filedir.BackColor = System.Drawing.Color.Silver;
-            this.lb_Filedir.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lb_Filedir.Font = new System.Drawing.Font("Cascadia Mono", 9F);
             this.lb_Filedir.Location = new System.Drawing.Point(5, 27);
             this.lb_Filedir.Name = "lb_Filedir";
-            this.lb_Filedir.Size = new System.Drawing.Size(93, 15);
+            this.lb_Filedir.Size = new System.Drawing.Size(133, 16);
             this.lb_Filedir.TabIndex = 2;
             this.lb_Filedir.Text = "Selected File Dir:";
             // 
@@ -529,10 +529,10 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.LB_SELFILEDIR.AutoSize = true;
             this.LB_SELFILEDIR.BackColor = System.Drawing.Color.Silver;
-            this.LB_SELFILEDIR.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LB_SELFILEDIR.Font = new System.Drawing.Font("Cascadia Mono", 9F);
             this.LB_SELFILEDIR.Location = new System.Drawing.Point(120, 27);
             this.LB_SELFILEDIR.Name = "LB_SELFILEDIR";
-            this.LB_SELFILEDIR.Size = new System.Drawing.Size(17, 15);
+            this.LB_SELFILEDIR.Size = new System.Drawing.Size(21, 16);
             this.LB_SELFILEDIR.TabIndex = 3;
             this.LB_SELFILEDIR.Text = "/-";
             // 
@@ -557,6 +557,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.PANEL_INSTANCE_INFO.Controls.Add(this.LB_State);
             this.PANEL_INSTANCE_INFO.Controls.Add(this.gunaLabel2);
             this.PANEL_INSTANCE_INFO.Controls.Add(this.LB_APP_Instances);
+            this.PANEL_INSTANCE_INFO.Font = new System.Drawing.Font("Cascadia Mono", 8.25F);
             this.PANEL_INSTANCE_INFO.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PANEL_INSTANCE_INFO.Location = new System.Drawing.Point(12, 391);
             this.PANEL_INSTANCE_INFO.Name = "PANEL_INSTANCE_INFO";
@@ -567,140 +568,140 @@ namespace Minecraft_LCE_Tweaker_Studio
             // gunaLabel7
             // 
             this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel7.Location = new System.Drawing.Point(5, 161);
+            this.gunaLabel7.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel7.Location = new System.Drawing.Point(295, 6);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(183, 15);
+            this.gunaLabel7.Size = new System.Drawing.Size(224, 16);
             this.gunaLabel7.TabIndex = 17;
             this.gunaLabel7.Text = "------ Modding Workspace ------";
             // 
             // LB_GAF
             // 
             this.LB_GAF.AutoSize = true;
-            this.LB_GAF.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_GAF.Location = new System.Drawing.Point(168, 203);
+            this.LB_GAF.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_GAF.Location = new System.Drawing.Point(262, 91);
             this.LB_GAF.Name = "LB_GAF";
-            this.LB_GAF.Size = new System.Drawing.Size(17, 15);
+            this.LB_GAF.Size = new System.Drawing.Size(21, 16);
             this.LB_GAF.TabIndex = 13;
             this.LB_GAF.Text = "/-";
             // 
             // gunaLabel3
             // 
             this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel3.Location = new System.Drawing.Point(5, 203);
+            this.gunaLabel3.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel3.Location = new System.Drawing.Point(262, 75);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(155, 15);
+            this.gunaLabel3.Size = new System.Drawing.Size(196, 16);
             this.gunaLabel3.TabIndex = 14;
             this.gunaLabel3.Text = "User Extracted Game Folder:";
             // 
             // LB_TEVW_SELC_FILE
             // 
             this.LB_TEVW_SELC_FILE.AutoSize = true;
-            this.LB_TEVW_SELC_FILE.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_TEVW_SELC_FILE.Location = new System.Drawing.Point(88, 188);
+            this.LB_TEVW_SELC_FILE.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_TEVW_SELC_FILE.Location = new System.Drawing.Point(262, 45);
             this.LB_TEVW_SELC_FILE.Name = "LB_TEVW_SELC_FILE";
-            this.LB_TEVW_SELC_FILE.Size = new System.Drawing.Size(17, 15);
+            this.LB_TEVW_SELC_FILE.Size = new System.Drawing.Size(21, 16);
             this.LB_TEVW_SELC_FILE.TabIndex = 16;
             this.LB_TEVW_SELC_FILE.Text = "/-";
             // 
             // LB_SEL_ILE
             // 
             this.LB_SEL_ILE.AutoSize = true;
-            this.LB_SEL_ILE.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_SEL_ILE.Location = new System.Drawing.Point(7, 188);
+            this.LB_SEL_ILE.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_SEL_ILE.Location = new System.Drawing.Point(262, 27);
             this.LB_SEL_ILE.Name = "LB_SEL_ILE";
-            this.LB_SEL_ILE.Size = new System.Drawing.Size(75, 15);
+            this.LB_SEL_ILE.Size = new System.Drawing.Size(105, 16);
             this.LB_SEL_ILE.TabIndex = 15;
             this.LB_SEL_ILE.Text = "Selected File:";
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(124, 91);
+            this.gunaLabel1.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(7, 201);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(51, 15);
+            this.gunaLabel1.Size = new System.Drawing.Size(77, 16);
             this.gunaLabel1.TabIndex = 12;
             this.gunaLabel1.Text = "File Size:";
             // 
             // gunaLabel4
             // 
             this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel4.Location = new System.Drawing.Point(124, 75);
+            this.gunaLabel4.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel4.Location = new System.Drawing.Point(7, 185);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(64, 15);
+            this.gunaLabel4.Size = new System.Drawing.Size(77, 16);
             this.gunaLabel4.TabIndex = 11;
             this.gunaLabel4.Text = "Read Only:";
             // 
             // gunaLabel5
             // 
             this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel5.Location = new System.Drawing.Point(124, 60);
+            this.gunaLabel5.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel5.Location = new System.Drawing.Point(7, 170);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(82, 15);
+            this.gunaLabel5.Size = new System.Drawing.Size(105, 16);
             this.gunaLabel5.TabIndex = 10;
             this.gunaLabel5.Text = "Creation Date:";
             // 
             // gunaLabel6
             // 
             this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel6.Location = new System.Drawing.Point(124, 45);
+            this.gunaLabel6.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.gunaLabel6.Location = new System.Drawing.Point(7, 155);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(61, 15);
+            this.gunaLabel6.Size = new System.Drawing.Size(77, 16);
             this.gunaLabel6.TabIndex = 9;
             this.gunaLabel6.Text = "File name:";
             // 
             // LB_FSize
             // 
             this.LB_FSize.AutoSize = true;
-            this.LB_FSize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_FSize.Location = new System.Drawing.Point(230, 91);
+            this.LB_FSize.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_FSize.Location = new System.Drawing.Point(113, 201);
             this.LB_FSize.Name = "LB_FSize";
-            this.LB_FSize.Size = new System.Drawing.Size(12, 15);
+            this.LB_FSize.Size = new System.Drawing.Size(14, 16);
             this.LB_FSize.TabIndex = 8;
             this.LB_FSize.Text = "-";
             // 
             // LB_ROnly
             // 
             this.LB_ROnly.AutoSize = true;
-            this.LB_ROnly.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_ROnly.Location = new System.Drawing.Point(230, 75);
+            this.LB_ROnly.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_ROnly.Location = new System.Drawing.Point(113, 185);
             this.LB_ROnly.Name = "LB_ROnly";
-            this.LB_ROnly.Size = new System.Drawing.Size(12, 15);
+            this.LB_ROnly.Size = new System.Drawing.Size(14, 16);
             this.LB_ROnly.TabIndex = 7;
             this.LB_ROnly.Text = "-";
             // 
             // LB_CDate
             // 
             this.LB_CDate.AutoSize = true;
-            this.LB_CDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_CDate.Location = new System.Drawing.Point(230, 60);
+            this.LB_CDate.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_CDate.Location = new System.Drawing.Point(113, 170);
             this.LB_CDate.Name = "LB_CDate";
-            this.LB_CDate.Size = new System.Drawing.Size(12, 15);
+            this.LB_CDate.Size = new System.Drawing.Size(14, 16);
             this.LB_CDate.TabIndex = 6;
             this.LB_CDate.Text = "-";
             // 
             // LB_FName
             // 
             this.LB_FName.AutoSize = true;
-            this.LB_FName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_FName.Location = new System.Drawing.Point(230, 45);
+            this.LB_FName.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_FName.Location = new System.Drawing.Point(113, 155);
             this.LB_FName.Name = "LB_FName";
-            this.LB_FName.Size = new System.Drawing.Size(12, 15);
+            this.LB_FName.Size = new System.Drawing.Size(14, 16);
             this.LB_FName.TabIndex = 5;
             this.LB_FName.Text = "-";
             // 
             // LB_State
             // 
             this.LB_State.AutoSize = true;
-            this.LB_State.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_State.Location = new System.Drawing.Point(5, 143);
+            this.LB_State.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.LB_State.Location = new System.Drawing.Point(7, 234);
             this.LB_State.Name = "LB_State";
-            this.LB_State.Size = new System.Drawing.Size(62, 15);
+            this.LB_State.Size = new System.Drawing.Size(70, 16);
             this.LB_State.TabIndex = 4;
             this.LB_State.Text = "Not Ready";
             this.LB_State.Click += new System.EventHandler(this.LB_State_Click);
@@ -708,21 +709,21 @@ namespace Minecraft_LCE_Tweaker_Studio
             // gunaLabel2
             // 
             this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Font = new System.Drawing.Font("Cascadia Mono", 9F);
             this.gunaLabel2.Location = new System.Drawing.Point(5, 6);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(143, 15);
+            this.gunaLabel2.Size = new System.Drawing.Size(203, 16);
             this.gunaLabel2.TabIndex = 1;
             this.gunaLabel2.Text = "------ File Instances ------";
             // 
             // LB_APP_Instances
             // 
             this.LB_APP_Instances.AutoSize = true;
-            this.LB_APP_Instances.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LB_APP_Instances.Font = new System.Drawing.Font("Cascadia Mono", 9F);
             this.LB_APP_Instances.ForeColor = System.Drawing.Color.Black;
             this.LB_APP_Instances.Location = new System.Drawing.Point(5, 49);
             this.LB_APP_Instances.Name = "LB_APP_Instances";
-            this.LB_APP_Instances.Size = new System.Drawing.Size(47, 75);
+            this.LB_APP_Instances.Size = new System.Drawing.Size(63, 80);
             this.LB_APP_Instances.TabIndex = 0;
             this.LB_APP_Instances.Text = "ARC: -\r\nFourj: -\r\nLOC: -\r\nSPT: -\r\nSEDIT: -";
             // 

@@ -57,6 +57,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             "Idle thinking ideas..",
             "Idle looking into the distance..",
             "Idle testing program..",
+            "Idle looking far.",
+            "Idle, going to shop.",
+            "Idle, going to sleep",
             "Idle testing program."};
         internal DiscordRPC.DiscordRpcClient RPCCli = new DiscordRPC.DiscordRpcClient(rpcCliId);
         public Main_AppCenter()
@@ -117,11 +120,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 RPCCli?.UpdateDetails("");
             }
-            else if (instances > 1)
-            {
-                RPCCli?.UpdateState(string.Format(rpcMessage_working, instances-1));
-                return;
-            }
+            
             else if (Expoint.InAppUserSettings.Default.S_Ins_Col != 0 && instances == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onCol);
@@ -148,12 +147,12 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 RPCCli?.UpdateState(rpcMessage_Idling[new Random().Next(rpcMessage_Idling.Length)]);
             }
-            
-          
+            else if (instances > 1)
+            {
+                RPCCli?.UpdateState(string.Format(rpcMessage_working, instances - 1));
+                return;
+            }
         }
-
-
-
         private void DetectFonts(string instpath,string fname, byte[] DataArray, float chkFntSize = 12, FontStyle style = FontStyle.Regular, GraphicsUnit GU = GraphicsUnit.Pixel)
         {
             if (CheckTtfExist(fname, chkFntSize, style, GU) is false)
