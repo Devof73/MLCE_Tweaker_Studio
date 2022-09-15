@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4J DevToolkit", "Minecraft LCE Tweaker Studio\4J DevToolkit.csproj", "{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		MLCE Tweaker Release 2.0|Any CPU = MLCE Tweaker Release 2.0|Any CPU
+		MLCE Tweaker Release 3.5|Any CPU = MLCE Tweaker Release 3.5|Any CPU
+		MLCE Tweaker Release 4.0|Any CPU = MLCE Tweaker Release 4.0|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 2.0|Any CPU.ActiveCfg = MLCE Tweaker Release 2.0|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 2.0|Any CPU.Build.0 = MLCE Tweaker Release 2.0|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 3.5|Any CPU.ActiveCfg = MLCE Tweaker Release 3.5|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 3.5|Any CPU.Build.0 = MLCE Tweaker Release 3.5|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 4.0|Any CPU.ActiveCfg = MLCE Tweaker Release 4.0|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 4.0|Any CPU.Build.0 = MLCE Tweaker Release 4.0|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EA0D78C-D87D-4DF3-A003-1BC3B890042C}
+	EndGlobalSection
+EndGlobal

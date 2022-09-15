@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Minecraft_LCE_Tweaker_Studio</RootNamespace>
+    <AssemblyName>Minecraft LCE Tweaker Studio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>3.5.16.4</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MLCE Tweaker Release 2.0|AnyCPU'">
+    <OutputPath>bin\MLCE Tweaker Release 2.0\</OutputPath>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MLCE Tweaker Release 3.5|AnyCPU'">
+    <OutputPath>bin\MLCE Tweaker Release 3.5\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MLCE Tweaker Release 4.0|AnyCPU'">
+    <OutputPath>bin\MLCE Tweaker Release 4.0\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSAudioPlayer, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSAudioPlayer.1.1.2\lib\net461\CSAudioPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Desktop\Escritorios\DownCraft\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Desktop\Escritorios\DownCraft\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Siticone.UI">
+      <HintPath>..\..\..\..\Desktop\Escritorios\Escritorio 1\DownCraft RTM Premium V2\Siticone.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about_help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="about_help.Designer.cs">
+      <DependentUpon>about_help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\ARC\ArcFile.cs" />
+    <Compile Include="Expoint\ARC\ResourceInputOutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\ARC\ResourceInputOutputForm.Designer.cs">
+      <DependentUpon>ResourceInputOutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\compilate_ps3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\compilate_ps3.Designer.cs">
+      <DependentUpon>compilate_ps3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\CreateEdit_Name.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\CreateEdit_Name.Designer.cs">
+      <DependentUpon>CreateEdit_Name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\EditionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\EditionManager.Designer.cs">
+      <DependentUpon>EditionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\form_backups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\Better Forms\form_backups.Designer.cs">
+      <DependentUpon>form_backups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\BINKA\AudioBinkInputOutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\BINKA\AudioBinkInputOutputForm.Designer.cs">
+      <DependentUpon>AudioBinkInputOutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\BINKA\Bink.cs" />
+    <Compile Include="Expoint\Clipboard\appClipboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\Clipboard\appClipboardForm.Designer.cs">
+      <DependentUpon>appClipboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\CMIX\ColorGuiHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\CMIX\ColorGuiHelper.Designer.cs">
+      <DependentUpon>ColorGuiHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\COL\Classes\COL.cs" />
+    <Compile Include="Expoint\COL\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\COL\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\Filebase.cs" />
+    <Compile Include="Expoint\FileData.cs" />
+    <Compile Include="Expoint\FileOutput.cs" />
+    <Compile Include="Expoint\File_Transfer_Protocol.cs" />
+    <Compile Include="Expoint\FJUI\Forms\ChangableMenuListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\FUI_Editor_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\FUI_Editor_Main.Designer.cs">
+      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\PicViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\PicViewer.designer.cs">
+      <DependentUpon>PicViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\FJUI\FuiImageInfo.cs" />
+    <Compile Include="Expoint\FJUI\Utils\ArrayUtils.cs" />
+    <Compile Include="Expoint\FJUI\Utils\FuiUtils.cs" />
+    <Compile Include="Expoint\FJUI\Utils\ImageUtils.cs" />
+    <Compile Include="Expoint\InAppUserSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>InAppUserSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\ITC\LceTerrain.cs" />
+    <Compile Include="Expoint\ITC\ITC-Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITC-Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\ITC\LegacyResourceException.cs" />
+    <Compile Include="Expoint\ITC\SpriteConverterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\ITC\SpriteConverterForm.Designer.cs">
+      <DependentUpon>SpriteConverterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\LOC\Data\Class0.cs" />
+    <Compile Include="Expoint\LOC\Data\Class1.cs" />
+    <Compile Include="Expoint\LOC\Data\Class2.cs" />
+    <Compile Include="Expoint\LOC\Data\LOC.cs" />
+    <Compile Include="Expoint\LOC\Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\LOC\Editor.Designer.cs">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\LOC\Editor_TextReplacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\LOC\Editor_TextReplacement.Designer.cs">
+      <DependentUpon>Editor_TextReplacement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\LOC\Properties\Resources.Designer.cs" />
+    <Compile Include="Expoint\LOC\Properties\Settings.Designer.cs" />
+    <Compile Include="Expoint\LOC\Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\LOC\Resources\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Expoint\LOC\SplitterClass.cs" />
+    <Compile Include="Expoint\TXT\Notepad-Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\TXT\Notepad-Main.designer.cs">
+      <DependentUpon>Notepad-Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\SplashEditor\SplashEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\SplashEditor\SplashEdit.Designer.cs">
+      <DependentUpon>SplashEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_AppCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_AppCenter.Designer.cs">
+      <DependentUpon>Main_AppCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome_Form.Designer.cs">
+      <DependentUpon>Welcome_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="about_help.resx">
+      <DependentUpon>about_help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\ARC\ResourceInputOutputForm.resx">
+      <DependentUpon>ResourceInputOutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\Better Forms\compilate_ps3.resx">
+      <DependentUpon>compilate_ps3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\Better Forms\CreateEdit_Name.resx">
+      <DependentUpon>CreateEdit_Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\Better Forms\EditionManager.resx">
+      <DependentUpon>EditionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\Better Forms\form_backups.resx">
+      <DependentUpon>form_backups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\BINKA\AudioBinkInputOutputForm.resx">
+      <DependentUpon>AudioBinkInputOutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\BINKA\Resources.resx" />
+    <EmbeddedResource Include="Expoint\Clipboard\appClipboardForm.resx">
+      <DependentUpon>appClipboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\CMIX\ColorGuiHelper.resx">
+      <DependentUpon>ColorGuiHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\COL\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\FUI_Editor_Main.ja-JP.resx">
+      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\FUI_Editor_Main.resx">
+      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\PicViewer.resx">
+      <DependentUpon>PicViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Resources\FJUI_Res.resx">
+      <CustomToolNamespace>FJUI.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Resources.resx" />
+    <EmbeddedResource Include="Expoint\ITC\ITC-Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ITC-Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\ITC\SpriteConverterForm.resx">
+      <DependentUpon>SpriteConverterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\LOC\Editor.resx">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\LOC\Editor_TextReplacement.resx">
+      <DependentUpon>Editor_TextReplacement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\LOC\Properties\Resources.resx" />
+    <EmbeddedResource Include="Expoint\LOC\Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\TXT\Notepad-Main.resx">
+      <DependentUpon>Notepad-Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\SplashEditor\SplashEdit.resx">
+      <DependentUpon>SplashEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_AppCenter.resx">
+      <DependentUpon>Main_AppCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome_Form.resx">
+      <DependentUpon>Welcome_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Expoint\BINKA\Resources\binkawin.asi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expoint\COL\FodyWeavers.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Expoint\FJUI\Properties\Settings.settings" />
+    <None Include="Expoint\InAppUserSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>InAppUserSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Expoint\LOC\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-cog-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card-multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archive-cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Expoint\dannyskey.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\particles.png" />
+    <None Include="Resources\folder-remove.png" />
+    <None Include="Resources\folder-plus.png" />
+    <None Include="Resources\terrain.png" />
+    <None Include="Resources\originalItems.png" />
+    <None Include="Resources\www.youtube.com_ %282%29.png" />
+    <None Include="Resources\www.youtube.com_ %281%291.png" />
+    <None Include="Resources\www.youtube.com_ %281%29.png" />
+    <None Include="Resources\ds.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\play-pause.png" />
+    <None Include="Resources\file-edit-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-box-multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Expoint\PCK\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Expoint\BINKA\Resources\ARROW.png" />
+    <Content Include="Expoint\BINKA\Resources\BINKA ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\binka_encode.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Expoint\BINKA\Resources\COL ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\FUI ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\fuiCenterHeader.png" />
+    <Content Include="Expoint\BINKA\Resources\IMAGE ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\LOC ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\locCenterHeader.png" />
+    <Content Include="Expoint\BINKA\Resources\logo.png" />
+    <Content Include="Expoint\BINKA\Resources\mss32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Expoint\BINKA\Resources\msscmp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Expoint\BINKA\Resources\NBT ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\nbtCenterHeader.png" />
+    <Content Include="Expoint\BINKA\Resources\PCK ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\TXT ICON.png" />
+    <Content Include="Expoint\BINKA\Resources\ZUnknown.png" />
+    <Content Include="Expoint\BINKA\Resources\ZZFolder.png" />
+    <Content Include="Expoint\ITC\MissedTextures\Chest\ender.png" />
+    <Content Include="Expoint\ITC\MissedTextures\Chest\normal.png" />
+    <Content Include="Expoint\ITC\MissedTextures\Chest\normal_double.png" />
+    <Content Include="Expoint\ITC\MissedTextures\Chest\trapped.png" />
+    <Content Include="Expoint\ITC\MissedTextures\Chest\trapped_double.png" />
+    <Content Include="Expoint\LOC\Resources\Close.png" />
+    <Content Include="Expoint\LOC\Resources\Close1.png" />
+    <Content Include="Expoint\LOC\Resources\Disk-download.png" />
+    <Content Include="Expoint\LOC\Resources\Disk-download1.png" />
+    <Content Include="Expoint\LOC\Resources\Find.png" />
+    <Content Include="Expoint\LOC\Resources\Find1.png" />
+    <Content Include="Expoint\LOC\Resources\Folder.png" />
+    <Content Include="Expoint\LOC\Resources\Folder1.png" />
+    <Content Include="Expoint\LOC\Resources\icons8-abrir-carpeta-208.png" />
+    <Content Include="Expoint\LOC\Resources\icons8-archivo-208 %281%29.png" />
+    <Content Include="Expoint\LOC\Resources\icons8-archivo-208.png" />
+    <Content Include="Expoint\LOC\Resources\icons8-carpeta-208.png" />
+    <Content Include="Expoint\LOC\Resources\No entry.png" />
+    <Content Include="Expoint\LOC\Resources\No entry1.png" />
+    <Content Include="Expoint\LOC\Resources\Resize.png" />
+    <Content Include="Expoint\LOC\Resources\Resize1.png" />
+    <Content Include="Expoint\LOC\Resources\Save.png" />
+    <Content Include="Expoint\LOC\Resources\Save1.png" />
+    <Content Include="Expoint\LOC\Resources\Zoom.png" />
+    <Content Include="minecraft_tweaker.ico" />
+    <None Include="Resources\file-music.png" />
+    <None Include="Resources\g6.png" />
+    <None Include="Resources\g5.png" />
+    <None Include="Resources\g4.png" />
+    <None Include="Resources\g3.png" />
+    <None Include="Resources\g2.png" />
+    <None Include="Resources\g1.png" />
+    <None Include="Resources\DefaultSaveImage320x176.png" />
+    <None Include="Resources\default.png" />
+    <None Include="Resources\Mojangles.ttf" />
+    <None Include="Resources\TTF_Minecrafter.Alt.ttf" />
+    <None Include="Resources\TTF_Minecrafter.Reg.ttf" />
+    <None Include="Resources\TutorialIcon.png" />
+    <None Include="Resources\clipboard-text.png" />
+    <None Include="Resources\palette.png" />
+    <None Include="Resources\eyedropper-variant.png" />
+    <None Include="Resources\invert-colors.png" />
+    <None Include="Resources\folder-open-outline.png" />
+    <None Include="Resources\layers-plus.png" />
+    <None Include="Resources\missed_texture02.png" />
+    <None Include="Resources\missed_texture01.png" />
+    <None Include="Resources\missed_texture00.png" />
+    <None Include="Resources\empty.png" />
+    <None Include="Resources\plus-box-multiple.png" />
+    <None Include="Resources\cube.png" />
+    <None Include="Resources\arrow-collapse-down1.png" />
+    <None Include="Resources\file-cog.png" />
+    <None Include="Resources\folder-arrow-down.png" />
+    <None Include="Resources\note-text-outline.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\arrow-collapse-down.png" />
+    <None Include="Resources\receipt-text-remove.png" />
+    <None Include="Resources\form-textbox %281%29.png" />
+    <None Include="Resources\folder-star.png" />
+    <None Include="Resources\folder1.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\minecraft_tweaker.png" />
+    <None Include="Resources\file-plus.png" />
+    <None Include="Resources\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\CSAudioPlayer.1.1.2\build\CSAudioPlayer.targets" Condition="Exists('..\packages\CSAudioPlayer.1.1.2\build\CSAudioPlayer.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CSAudioPlayer.1.1.2\build\CSAudioPlayer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSAudioPlayer.1.1.2\build\CSAudioPlayer.targets'))" />
+  </Target>
+</Project>
