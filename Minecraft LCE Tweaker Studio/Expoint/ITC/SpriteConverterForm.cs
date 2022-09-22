@@ -12,17 +12,19 @@ using System.IO;
 using System.Threading;
 using Expoint.ITC;
 using System.Drawing.Imaging;
+using Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms;
+using System.Security.Policy;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
 {
     public partial class SpriteConverterForm : Form
     {
-
+        CompilationLog MLogger = new CompilationLog();
         public SpriteConverterForm()
         {
             InitializeComponent();
             CheckAndWriteAppData();
-
+            TIMER_LOGGER.Start();
             LBX_NeededFiles.Items.Clear(); LBX_NeededFiles.Items.AddRange(obj_names);
             Expoint.InAppUserSettings.Default.S_Ins_SPT++;
         }
@@ -37,14 +39,16 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         internal static string textureFolderPath = "";
         private readonly string javaMcVersions = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Roaming\\.minecraft\\versions\\"; 
         // Builder Result Out Path Variable
-        internal static string fileOutPath = "";
+        internal string fileOutPath = "";
         // User Selected File Names
         internal static string[] selectedFiles = { };
         // Latest user cooked bitmap.
         //internal static Bitmap ltstCookedBmp;
         internal static bool includeAnimFrames = false;
         internal static bool sortFramesToLCE = true;
-        
+        internal readonly int[] SheetDimensions = { 16, 32,64};
+        internal int PngSheetDimension = 16;
+
         #region BigRegionNamesArray
         readonly string[] obj_names = { "leather_helmet", "chainmail_helmet", "iron_helmet","diamond_helmet", "golden_helmet", "flint_and_steel", "flint", "coal", "string","wheat_seeds", "apple", "golden_apple", "egg","sugar","snowball","elytra"
         ,"leather_chestplate", "chainmail_chestplate", "iron_chestplate","diamond_chestplate", "golden_chestplate", "bow", "brick","iron_ingot","feather", "wheat", "painting", "sugar_cane", "bone", "cake", "slime_ball", "broken_elytra"
@@ -87,7 +91,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             if (Directory.Exists(str_dirname) == false)
             {
                 Directory.CreateDirectory(str_dirname);
-                Console.WriteLine("[!] Creating Dir.. ");
+                MLogger.WriteLine("[!] Creating Dir.. ");
                 for (int i = 0; i < missed_java_bmps.Length; i++)
                 {
                     var filepath = str_dirname + @"\" + "missed_texture_0" + i + ".png";
@@ -98,26 +102,27 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                         if (File.Exists(filepath) == true)
                         {
                             missed_java_bmps[i].Save(filepath);
-                            Console.WriteLine("[!] === Writing: " + filepath + "... ===");
+                            MLogger.WriteLine("[!] === Writing: " + filepath + "... ===");
                         }
-                        Console.WriteLine("[!] <===== Data Write Operation Ended. =====> ");
+                        MLogger.WriteLine("[!] <===== Data Write Operation Ended. =====> ");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("ERROR: " + ex.Message + "\rSource: " + ex.Source);
-                        Console.WriteLine("[*] <===== Data Write Operation Failed. =====> ");
-                        Console.WriteLine("[*] - Exception Result = MSG: " + ex.Message + " - Source: " + ex.Source);
+                        MLogger.WriteLine("[*] <===== Data Write Operation Failed. =====> ");
+                        MLogger.WriteLine("[*] - Exception Result = MSG: " + ex.Message + " - Source: " + ex.Source);
                     }
                 }
             }
             else if (Directory.Exists(str_dirname) == true)
             {
-                Console.WriteLine("[!] <===== Checker Operation Ended. =====> ");
-                Console.WriteLine("[!] App resources already installed.");
+                MLogger.WriteLine("[!] <===== Checker Operation Ended. =====> ");
+                MLogger.WriteLine("[!] App resources already installed.");
             }
         }
         internal void App_RequestTextureFolder(bool terrainFiles = false)
         {
+            MLogger.WriteLine("[!] Requesting sfd.");
             APP_FBD_Request = new FolderBrowserDialog()
             {
                 Description = "Select a folder of a Minecraft 1.13 Java Resource Path, with all needed resources.",
@@ -125,12 +130,56 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             };
             if (APP_FBD_Request.ShowDialog() == DialogResult.OK)
             {
+                MLogger.WriteLine("[!] sfd = ok");
                 textureFolderPath = APP_FBD_Request.SelectedPath;
                 TB_TextureFolderPath.Text = textureFolderPath;
                 LB_Files.Items.Clear();
                 ReadTextureDir(LBX_NeededFiles, sortToLCE: sortFramesToLCE, terrain: terrainFiles);
             }
             APP_FBD_Request.Dispose();
+        }
+        internal bool CheckFoldContainsAll(string path)
+        {
+            var list = obj_names;
+            short okFiles = 0;
+            var user113path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Roaming\\.minecraft\\versions\\1.13.2";
+            var has113 = Directory.Exists(user113path);
+            var textures113path = user113path + "\\assets\\textures\\items"; 
+            for (int i = 0; i < list.Length; i++)
+            {
+                var fn = path + "\\" + list[i] + ".png";
+                bool r = File.Exists(fn) == true;
+                var obj = list[i].ToString();
+                if (r)
+                {
+                    MLogger.WriteLine("[SUCCESS] "+fn);
+                    okFiles++;
+                }
+                else if (r == false && list.Contains(obj))
+                {
+                    
+                }
+                else
+                {
+                    if (has113 && Directory.Exists(textures113path))
+                    {
+
+                    }
+                  
+
+                 
+                    MLogger.WriteLine("[*] xx - " + fn);
+                }
+
+            }
+            if (okFiles == list.Length)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         internal void ThrowLBTextureException(string message, string description, string targetPath = "", int ErrorIndex = 0, Action specialVoid = null)
         {
@@ -147,8 +196,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                 int i_file_count = 0;
                 if (sortToLCE is true)
                 {
+                    CheckFoldContainsAll(textureFolderPath);
                     foreach (string file in lbox.Items)
                     {
+                        
                         var Key = textureFolderPath + @"\" + file + ".png";
                         if (FileList.Contains(Key))
                         {
@@ -157,36 +208,31 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                            
                         }
                         else if (FileList.Contains(Key) == false && file.Contains("clock_") == false && file.Contains("compass_") == false
-                        && file.Contains("missed") == false && file.Contains("empty") == false)
+                        )
                         {
-
-                            ThrowLBTextureException("The textures folder have a missing file(s), file addition will be returned."
-                            , "\"FileList.Contains(key)\"" +
-                            " returned false, cannot sort to LCE withing all the required textures. Missing value: "
-                            + file, Key, i_file_count, new Action(LB_Files.Items.Clear));
-                            dirNotContained.Add(Key);
-                            break;
-
+                            MLogger.WriteLine("[*!*] FLIST not contains following file : "+ Key);
+                          
+                           
                         }
                     }
                     {
 
-                        Console.WriteLine("-p==========");
-                        Console.WriteLine("=-r=========");
-                        Console.WriteLine("==-o========");
-                        Console.WriteLine("===-c=======");
-                        Console.WriteLine("====-c======");
-                        Console.WriteLine("=====-e=====");
-                        Console.WriteLine("======-s====");
-                        Console.WriteLine("=======-s===");
-                        Console.WriteLine("========-i==");
-                        Console.WriteLine("=========-n=");
-                        Console.WriteLine("==========-g");
-                        Console.WriteLine("===========-");
+                        MLogger.WriteLine("-p==========");
+                        MLogger.WriteLine("=-r=========");
+                        MLogger.WriteLine("==-o========");
+                        MLogger.WriteLine("===-c=======");
+                        MLogger.WriteLine("====-c======");
+                        MLogger.WriteLine("=====-e=====");
+                        MLogger.WriteLine("======-s====");
+                        MLogger.WriteLine("=======-s===");
+                        MLogger.WriteLine("========-i==");
+                        MLogger.WriteLine("=========-n=");
+                        MLogger.WriteLine("==========-g");
+                        MLogger.WriteLine("===========-");
                     }
                     if (LB_Files.Items.Contains(TB_TextureFolderPath.Text + @"\iron_door.png") && LB_Files.Items.Contains(TB_TextureFolderPath.Text + @"\rabbit_hide.png") && LB_Files.Items.Contains(TB_TextureFolderPath.Text + @"\spawn_egg_overlay.png"))
                     {
-                        Console.WriteLine("[!] Checking appear of many internal vars...");
+                        MLogger.WriteLine("[!] Checking appear of many internal vars...");
 
                         var listBox = LB_Files;
                         var indexOfName = LB_Files.Items.IndexOf(TB_TextureFolderPath.Text + @"\iron_door.png");
@@ -194,10 +240,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                         var indexOfName1 = LB_Files.Items.IndexOf(TB_TextureFolderPath.Text + @"\spawn_egg_overlay.png");
                         var indexOfName2 = LB_Files.Items.IndexOf(TB_TextureFolderPath.Text + @"\tropical_fish_bucket.png");
                         var indexOfName3 = LB_Files.Items.IndexOf(TB_TextureFolderPath.Text + @"\magenta_dye.png");
-                        Console.WriteLine($"[INFO] INDEXES:\r-1:{indexOfName}\r0:{indexOfName0}\r1:{indexOfName1}\r2:{indexOfName2}");
+                        MLogger.WriteLine($"[INFO] INDEXES:\r-1:{indexOfName}\r0:{indexOfName0}\r1:{indexOfName1}\r2:{indexOfName2}");
                         // PUERTA DE HIERRO = CAMA_OVERLAY
                         listBox.Items.Insert(indexOfName + 1, missedFilenames[1] + ".png");
-                        Console.WriteLine("[!] Inserting matched value: " + missedFilenames[1] + " to index: " + indexOfName);
+                        MLogger.WriteLine("[!] Inserting matched value: " + missedFilenames[1] + " to index: " + indexOfName);
                         // PIEL DE CONEJO = 8
                         for (int gap = 0; gap < 8; gap++)
                         {
@@ -211,10 +257,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                         listBox.Items.Insert(indexOfName0 + 10, missedFilenames[0] + ".png");
                         listBox.Items.Insert(indexOfName3 + 2, "[EMPTY_SEPARATOR_UNKNOWN_ITEM]");
 
-                        Console.WriteLine("[!] Inserting matched value: " + missedFilenames[0] + " to index: " + indexOfName0);
+                        MLogger.WriteLine("[!] Inserting matched value: " + missedFilenames[0] + " to index: " + indexOfName0);
                         // CARCASA DE HUEVO SPAWN = RELLENO DE LA CAMA
                         listBox.Items.Insert(indexOfName1 + 4, missedFilenames[2] + ".png");
-                        Console.WriteLine("[!] Inserting matched value: " + missedFilenames[2] + " to index: " + indexOfName1);
+                        MLogger.WriteLine("[!] Inserting matched value: " + missedFilenames[2] + " to index: " + indexOfName1);
                        
                     }
 
@@ -225,18 +271,18 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     var fseCount = FileList.Count();
                     {
 
-                        Console.WriteLine("-p==========");
-                        Console.WriteLine("=-r=========");
-                        Console.WriteLine("==-o========");
-                        Console.WriteLine("===-c=======");
-                        Console.WriteLine("====-c======");
-                        Console.WriteLine("=====-e=====");
-                        Console.WriteLine("======-s====");
-                        Console.WriteLine("=======-s===");
-                        Console.WriteLine("========-i==");
-                        Console.WriteLine("=========-n=");
-                        Console.WriteLine("==========-g");
-                        Console.WriteLine("===========-");
+                        MLogger.WriteLine("-p==========");
+                        MLogger.WriteLine("=-r=========");
+                        MLogger.WriteLine("==-o========");
+                        MLogger.WriteLine("===-c=======");
+                        MLogger.WriteLine("====-c======");
+                        MLogger.WriteLine("=====-e=====");
+                        MLogger.WriteLine("======-s====");
+                        MLogger.WriteLine("=======-s===");
+                        MLogger.WriteLine("========-i==");
+                        MLogger.WriteLine("=========-n=");
+                        MLogger.WriteLine("==========-g");
+                        MLogger.WriteLine("===========-");
                     }
                     for (int pgr = 0; pgr < fseCount; pgr++)
                     {
@@ -247,7 +293,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                         }
                     }
                 }
-                if (dirNotContained.Count > 0)
+                if (dirNotContained.Count > 0 && CheckFoldContainsAll(textureFolderPath) is false)
                 {
                     var ncdir = dirNotContained.Cast<string>();
                     string rslt = "";
@@ -260,6 +306,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     MessageBox.Show($"WARNING: {textureFolderPath} Not contains the " +
                         $"following filenames: " + rslt, "Warning.", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
                 }
+                
             }
             else if (terrain is true)
             {
@@ -267,25 +314,25 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                 var fseCount = fileSelEnum.Count();
                 {
 
-                    Console.WriteLine("-p==========");
-                    Console.WriteLine("=-r=========");
-                    Console.WriteLine("==-o========");
-                    Console.WriteLine("===-c=======");
-                    Console.WriteLine("====-c======");
-                    Console.WriteLine("=====-e=====");
-                    Console.WriteLine("======-s====");
-                    Console.WriteLine("=======-s===");
-                    Console.WriteLine("========-i==");
-                    Console.WriteLine("=========-n=");
-                    Console.WriteLine("==========-g");
-                    Console.WriteLine("===========-");
+                    MLogger.WriteLine("-p==========");
+                    MLogger.WriteLine("=-r=========");
+                    MLogger.WriteLine("==-o========");
+                    MLogger.WriteLine("===-c=======");
+                    MLogger.WriteLine("====-c======");
+                    MLogger.WriteLine("=====-e=====");
+                    MLogger.WriteLine("======-s====");
+                    MLogger.WriteLine("=======-s===");
+                    MLogger.WriteLine("========-i==");
+                    MLogger.WriteLine("=========-n=");
+                    MLogger.WriteLine("==========-g");
+                    MLogger.WriteLine("===========-");
                 }
                 for (int pgr = 0; pgr < fseCount; pgr++)
                 {
                     if (fileSelEnum[pgr].EndsWith(".png"))
                     {
                         LB_Files.Items.Add(fileSelEnum[pgr]);
-                        Console.WriteLine("[!] (" + pgr + "/" + fseCount + ") " + fileSelEnum[pgr]);
+                        MLogger.WriteLine("[!] (" + pgr + "/" + fseCount + ") " + fileSelEnum[pgr]);
                         //TST_PBR_CookProgress.Value = Percent(pgr, fseCount);
 
                     }
@@ -315,8 +362,8 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             {
                 try
                 {
-                    i_fuicount++;
                     var outFileName = fileOutPath + @"\items_concaten(" + i_fuicount.ToString() + ").png";
+                    i_fuicount++;
                     //MessageBox.Show("var outFileName = " + outFileName);
                     selectedFiles = LB_Files.Items.Cast<string>().ToArray();
                     this.SuspendLayout();
@@ -338,8 +385,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         }
         internal Bitmap CreateResourceBmp(int textureCount)
         {
-            int width = 16 * Math.Min(textureCount, 16);
-            int height = 16 * ((textureCount + 15) / 16);
+            var dim = PngSheetDimension;
+            int width = dim * Math.Min(textureCount, dim);
+            int height = dim * ((textureCount + 15) / dim);
             return new Bitmap(width, height, PixelFormat.Format32bppArgb);
         }
         internal void DrawTextures(Bitmap res, string[] textures, int px_size = 16, bool terrain = false)
@@ -348,7 +396,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             {
                 for (int i = 0; i < textures.Length; i++)
                 {
-                    Console.WriteLine($"[!] Processing... {i}/{textures.Length}");
+                    MLogger.WriteLine($"[!] Processing... {i}/{textures.Length}");
                     int x = px_size * (i % px_size);
                     int y = px_size * (i / px_size);
                     #region Draw Texture Normally
@@ -362,7 +410,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     }
                     else
                     {
-                        Console.WriteLine("[!] Texture " + i + " - " + textures[i]);
+                        MLogger.WriteLine("[!] Texture " + i + " - " + textures[i]);
                         using (Image texture = Bitmap.FromFile(textures[i]))
                         {
                             graphics.DrawImage(texture, x, y, px_size, px_size);
@@ -373,14 +421,14 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     #endregion
                 }
                 graphics.Dispose();
-                Console.WriteLine($"[!] Operation Ended: {LB_Files.Items.Count} added textures of {textures.Length}.");
+                MLogger.WriteLine($"[!] Operation Ended: {LB_Files.Items.Count} added textures of {textures.Length}.");
             }
         }
         internal void CreateResourceFile(string resourcePath)
         {
             using (Bitmap bmp = CreateResourceBmp(selectedFiles.Length))
             {
-                DrawTextures(bmp, selectedFiles);
+                DrawTextures(bmp, selectedFiles, PngSheetDimension, false);
                 try
                 {
                     File.Delete(resourcePath);
@@ -400,9 +448,8 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             if (APP_FBD_Request.ShowDialog() == DialogResult.OK)
             {
                 fileOutPath = APP_FBD_Request.SelectedPath;
-                Tbx_OutFolder.Text = fileOutPath + @"\items_concaten(" + i_fuicount.ToString() + ").png";
+                Tbx_OutFolder.Text = fileOutPath + @"\items_concaten(" + (char)i_fuicount+ ").png";
             }
-            APP_FBD_Request.Dispose();
         }
 
         private void BTN_buildSprite_Click_1(object sender, EventArgs e)
@@ -419,9 +466,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
 
         private void Tbx_OutFolder_TextChanged(object sender, EventArgs e)
         {
-            fileOutPath = Tbx_OutFolder.Text;
-            Tbx_OutFolder.Text = fileOutPath + @"\items_concaten(" + i_fuicount.ToString() + ").png";
-            label5.Text = "Out: " + Tbx_OutFolder.Text;
+            
         }
         #region Terrain
         internal string t_selectedTerrainFolderPath = "";
@@ -475,7 +520,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         }
         private void btn_odf_sfd_Click(object sender, EventArgs e)
         {
-
+      
             FolderBrowserDialog APP_FBD_Request = new FolderBrowserDialog()
             {
                 Description = "Select a folder of to save the result file in there.",
@@ -484,7 +529,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             if (APP_FBD_Request.ShowDialog() == DialogResult.OK)
             {
                 t_selectedOutPath = APP_FBD_Request.SelectedPath;
-                Tbx_OutFolder.Text = t_selectedOutPath;
+                tbx_TerrainOutputFn.Text = t_selectedOutPath;
             }
             APP_FBD_Request.Dispose();
         }
@@ -507,6 +552,45 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         #endregion
 
         private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RBTN_FRM_16_CheckedChanged(object sender, EventArgs e)
+        {
+            bool c = RBTN_FRM_16.Checked == true;
+            if (c) { PngSheetDimension = SheetDimensions[0]; }
+        }
+
+        private void RBTN_FRM_32_CheckedChanged(object sender, EventArgs e)
+        {
+            bool c = RBTN_FRM_32.Checked == true;
+            if (c) { PngSheetDimension = SheetDimensions[1]; }
+        }
+
+        private void RBTN_FRM_64_CheckedChanged(object sender, EventArgs e)
+        {
+            bool c = RBTN_FRM_64.Checked == true;
+            if (c) { PngSheetDimension = SheetDimensions[2]; }
+        }
+
+        private void TIMER_LOGGER_Tick(object sender, EventArgs e)
+        {
+            if (MLogger.Output != RCHTBX_LOG.Text)
+            {
+                RCHTBX_LOG.Text = MLogger.Output;
+                RCHTBX_LOG.SelectionStart = RCHTBX_LOG.Text.Length - 1;
+                RCHTBX_LOG.SelectionLength = RCHTBX_LOG.Text.Length +1;
+            }
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fileOutPath = Tbx_OutFolder.Text;
+        }
+
+        private void tbx_TerrainOutputFn_TextChanged(object sender, EventArgs e)
         {
 
         }

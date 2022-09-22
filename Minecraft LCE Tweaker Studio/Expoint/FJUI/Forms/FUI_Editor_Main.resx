@@ -276,6 +276,12 @@
   <metadata name="imageMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>240, 17</value>
   </metadata>
+  <data name="inToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="inToolStripMenuItem.Text" xml:space="preserve">
+    <value>Invert Color</value>
+  </data>
   <data name="imageSaveStripMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
@@ -304,7 +310,7 @@
     <value>100, 23</value>
   </data>
   <data name="imageMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 95</value>
+    <value>161, 117</value>
   </data>
   <data name="&gt;&gt;imageMenuStrip.Name" xml:space="preserve">
     <value>imageMenuStrip</value>
@@ -321,6 +327,12 @@
   <metadata name="imageBulkMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>389, 17</value>
   </metadata>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 22</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Invert Color</value>
+  </data>
   <data name="replaceRangeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 22</value>
   </data>
@@ -334,7 +346,7 @@
     <value>Save images</value>
   </data>
   <data name="imageBulkMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 70</value>
+    <value>198, 92</value>
   </data>
   <data name="&gt;&gt;imageBulkMenuStrip.Name" xml:space="preserve">
     <value>imageBulkMenuStrip</value>
@@ -549,6 +561,9 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>712, 381</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Fourj User Interface Editor</value>
   </data>
@@ -672,16 +687,28 @@
   <data name="&gt;&gt;imageList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;replaceRangeToolStripMenuItem.Name" xml:space="preserve">
+    <value>replaceRangeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;replaceRangeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;imageBulkSave.Name" xml:space="preserve">
     <value>imageBulkSave</value>
   </data>
   <data name="&gt;&gt;imageBulkSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;replaceRangeToolStripMenuItem.Name" xml:space="preserve">
-    <value>replaceRangeToolStripMenuItem</value>
+  <data name="&gt;&gt;inToolStripMenuItem.Name" xml:space="preserve">
+    <value>inToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;replaceRangeToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;inToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -54,14 +54,16 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             this.SITEM_LABEL_EDIT = new System.Windows.Forms.ToolStripTextBox();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.imageBulkMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.replaceRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageBulkSave = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_PREVIEW_DUMP = new System.Windows.Forms.Button();
             this.BTN_PREVIEW_REVERTCOLOR = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.imageListView = new FuiEditor.Forms.ChangableMenuListView();
             this.LBL_SELECTED_PIC_SIZE = new System.Windows.Forms.Label();
             this.PB_SelectedIndexPreview = new System.Windows.Forms.PictureBox();
-            this.replaceRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageListView = new FuiEditor.Forms.ChangableMenuListView();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.imageMenuStrip.SuspendLayout();
             this.imageBulkMenuStrip.SuspendLayout();
@@ -188,6 +190,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             // imageMenuStrip
             // 
             this.imageMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inToolStripMenuItem,
             this.imageSaveStripMenu,
             this.imageReplaceStripMenu,
             this.imageEditAttributeStripMenu,
@@ -231,10 +234,17 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             // imageBulkMenuStrip
             // 
             this.imageBulkMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.replaceRangeToolStripMenuItem,
             this.imageBulkSave});
             this.imageBulkMenuStrip.Name = "imageBulkMenuStrip";
             resources.ApplyResources(this.imageBulkMenuStrip, "imageBulkMenuStrip");
+            // 
+            // replaceRangeToolStripMenuItem
+            // 
+            this.replaceRangeToolStripMenuItem.Name = "replaceRangeToolStripMenuItem";
+            resources.ApplyResources(this.replaceRangeToolStripMenuItem, "replaceRangeToolStripMenuItem");
+            this.replaceRangeToolStripMenuItem.Click += new System.EventHandler(this.replaceRangeToolStripMenuItem_Click);
             // 
             // imageBulkSave
             // 
@@ -274,6 +284,26 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             this.splitContainer1.Panel2.Controls.Add(this.PB_SelectedIndexPreview);
             this.splitContainer1.Panel2.Controls.Add(this.BTN_PREVIEW_DUMP);
             // 
+            // LBL_SELECTED_PIC_SIZE
+            // 
+            resources.ApplyResources(this.LBL_SELECTED_PIC_SIZE, "LBL_SELECTED_PIC_SIZE");
+            this.LBL_SELECTED_PIC_SIZE.Name = "LBL_SELECTED_PIC_SIZE";
+            // 
+            // PB_SelectedIndexPreview
+            // 
+            this.PB_SelectedIndexPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PB_SelectedIndexPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.PB_SelectedIndexPreview, "PB_SelectedIndexPreview");
+            this.PB_SelectedIndexPreview.Name = "PB_SelectedIndexPreview";
+            this.PB_SelectedIndexPreview.TabStop = false;
+            this.PB_SelectedIndexPreview.DoubleClick += new System.EventHandler(this.PB_SelectedIndexPreview_DoubleClick);
+            // 
+            // inToolStripMenuItem
+            // 
+            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
+            resources.ApplyResources(this.inToolStripMenuItem, "inToolStripMenuItem");
+            this.inToolStripMenuItem.Click += new System.EventHandler(this.inToolStripMenuItem_Click);
+            // 
             // imageListView
             // 
             this.imageListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -299,25 +329,11 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             this.imageListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.imageListView_DragEnter);
             this.imageListView.DoubleClick += new System.EventHandler(this.imageListView_DoubleClick);
             // 
-            // LBL_SELECTED_PIC_SIZE
+            // toolStripMenuItem1
             // 
-            resources.ApplyResources(this.LBL_SELECTED_PIC_SIZE, "LBL_SELECTED_PIC_SIZE");
-            this.LBL_SELECTED_PIC_SIZE.Name = "LBL_SELECTED_PIC_SIZE";
-            // 
-            // PB_SelectedIndexPreview
-            // 
-            this.PB_SelectedIndexPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.PB_SelectedIndexPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.PB_SelectedIndexPreview, "PB_SelectedIndexPreview");
-            this.PB_SelectedIndexPreview.Name = "PB_SelectedIndexPreview";
-            this.PB_SelectedIndexPreview.TabStop = false;
-            this.PB_SelectedIndexPreview.DoubleClick += new System.EventHandler(this.PB_SelectedIndexPreview_DoubleClick);
-            // 
-            // replaceRangeToolStripMenuItem
-            // 
-            this.replaceRangeToolStripMenuItem.Name = "replaceRangeToolStripMenuItem";
-            resources.ApplyResources(this.replaceRangeToolStripMenuItem, "replaceRangeToolStripMenuItem");
-            this.replaceRangeToolStripMenuItem.Click += new System.EventHandler(this.replaceRangeToolStripMenuItem_Click);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
             // FUI_Editor_Main
             // 
@@ -331,7 +347,6 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FUI_Editor_Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FUI_Editor_Main_FormClosed);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -367,6 +382,8 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         private System.Windows.Forms.ToolStripMenuItem restoreTagsToolStripMenuItem;
         private System.Windows.Forms.Label LBL_SELECTED_PIC_SIZE;
         private System.Windows.Forms.ToolStripMenuItem replaceRangeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

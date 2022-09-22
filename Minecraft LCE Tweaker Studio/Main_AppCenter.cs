@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
-
+using TagLib.IFD.Entries;
 
 namespace Minecraft_LCE_Tweaker_Studio
 {
@@ -83,8 +83,12 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "MLCE Modding\\savedata");
             }
-
+            if (isTheCreator) { dbg_btn.Enabled = true; }
         }
+        #region #Owner Detector
+        readonly bool isTheCreator = Environment.UserName == "JP";
+        #endregion
+        #region #Discord Rich Presence 
         internal void RPC_SetPresence(DateTime StartTime, bool Update,string State = "", string Details = "", string LargeImgKey = "", string SmallImageKey = "",string LargeImageToolTip = "", string SmallImageToolTip = "")
         {
            if (Update)
@@ -106,6 +110,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             }
 
         }
+        internal bool rpcMsgAlreadyIdling = false;
         internal void RPC_SetMessage()
         {
             var instances = Expoint.InAppUserSettings.Default.S_Ins_Arc
@@ -121,21 +126,21 @@ namespace Minecraft_LCE_Tweaker_Studio
                 RPCCli?.UpdateDetails("");
             }
             
-            else if (Expoint.InAppUserSettings.Default.S_Ins_Col != 0 && instances == 1)
+            if (Expoint.InAppUserSettings.Default.S_Ins_Col == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onCol);
             }
-            else if (Expoint.InAppUserSettings.Default.S_Ins_Fui != 0 && instances == 1)
+            else if (Expoint.InAppUserSettings.Default.S_Ins_Fui == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onfui);
 
             }
-            else if (Expoint.InAppUserSettings.Default.S_Ins_Loc != 0 && instances == 1) { RPCCli?.UpdateState(rpcMessage_onLoc); }
-            else if (Expoint.InAppUserSettings.Default.S_Ins_Arc != 0 && instances == 1)
+            else if (Expoint.InAppUserSettings.Default.S_Ins_Loc == 1) { RPCCli?.UpdateState(rpcMessage_onLoc); }
+            else if (Expoint.InAppUserSettings.Default.S_Ins_Arc == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onarc);
             }
-            else if (Expoint.InAppUserSettings.Default.S_Ins_SPT != 0 && instances == 1)
+            else if (Expoint.InAppUserSettings.Default.S_Ins_SPT == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onSC);
             }
@@ -143,9 +148,14 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 RPCCli?.UpdateDetails(rpcMessage_onProject);
             }
-            else if (idle)
+            else if (idle && rpcMsgAlreadyIdling is false)
             {
                 RPCCli?.UpdateState(rpcMessage_Idling[new Random().Next(rpcMessage_Idling.Length)]);
+                rpcMsgAlreadyIdling = true;
+            }
+            else if (idle is false && rpcMsgAlreadyIdling is true)
+            {
+                rpcMsgAlreadyIdling = false;
             }
             else if (instances > 1)
             {
@@ -153,6 +163,9 @@ namespace Minecraft_LCE_Tweaker_Studio
                 return;
             }
         }
+        #endregion
+
+        #region #TTF
         private void DetectFonts(string instpath,string fname, byte[] DataArray, float chkFntSize = 12, FontStyle style = FontStyle.Regular, GraphicsUnit GU = GraphicsUnit.Pixel)
         {
             if (CheckTtfExist(fname, chkFntSize, style, GU) is false)
@@ -234,6 +247,9 @@ namespace Minecraft_LCE_Tweaker_Studio
                 return true;
             }
         }
+        #endregion
+
+        #region #Settings
         private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             InstancesRunning =
@@ -293,6 +309,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             LB_ROnly.Text = FI.IsReadOnly.ToString();
             LB_FName.Text = FI.Name.ToString();
         }
+        #endregion
+
+        #region #Events Asignments
         private void guna2Button6_Click(object sender, EventArgs e)
         {
             try
@@ -336,8 +355,6 @@ namespace Minecraft_LCE_Tweaker_Studio
 
             Environment.Exit(0x01);
         }
-
-
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
@@ -513,6 +530,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 if (TEVW_FAV_GAMEDATA_FOLDER.SelectedNode != null)
                 {
+                    FileName = TEVW_FAV_GAMEDATA_FOLDER.SelectedNode.Tag.ToString();
                     string sTag = TEVW_FAV_GAMEDATA_FOLDER.SelectedNode.Tag.ToString();
                     string sRtag = sTag.Substring(sTag.LastIndexOf("\\"));
                     LB_TEVW_SELC_FILE.Text = sRtag;
@@ -590,9 +608,14 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void TEVW_FAV_GAMEDATA_FOLDER_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (TEVW_FAV_GAMEDATA_FOLDER.SelectedNode != null)
+            {
+                FileName = TEVW_FAV_GAMEDATA_FOLDER.SelectedNode.Tag.ToString();
+            }
             if (FileName != "C:\\")
             {
                 App_CheckFormatCommonCapabilities(new FileInfo(FileName));
+                App_CheckFormatCapabilities(new FileInfo(FileName));
             }
         }
 
@@ -886,6 +909,8 @@ namespace Minecraft_LCE_Tweaker_Studio
             BTN_TOOL_SPLASH.FillColor = col;
             BTN_CMIX_TOOL.FillColor = col;
             BTN_CBR_TOOL.FillColor = col; BTN_BINK_TOOL.FillColor = col; BTN_COL_TOOL.FillColor = col;
+            label1.ForeColor = col;
+            dbg_btn.ForeColor = col;
         }
 
         private void BTN_NWEDIT_Click(object sender, EventArgs e)
@@ -1078,6 +1103,13 @@ namespace Minecraft_LCE_Tweaker_Studio
                 MessageBox.Show("!Deleted " + dir.FullName);
             }
 
+        }
+        #endregion
+
+        private void BTN_PCK_TOOL_Click_1(object sender, EventArgs e)
+        {
+            //PckStudio.MainForm mainForm = new PckStudio.MainForm();
+            //mainForm.Show();
         }
     }
 }

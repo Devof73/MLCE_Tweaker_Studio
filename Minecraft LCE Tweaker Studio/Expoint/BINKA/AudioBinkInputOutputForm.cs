@@ -98,7 +98,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
         internal bool SelFileIsWav = false;
         internal string FnIn;
         internal string FnOut = @"C:\";
-        private unsafe void btn3_binknow_Click(object sender, EventArgs e)
+        private void btn3_binknow_Click(object sender, EventArgs e)
         {
             if (SelFileIsWav is true && FnIn.EndsWith(".wav"))
             {

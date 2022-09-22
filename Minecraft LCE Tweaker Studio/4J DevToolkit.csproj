@@ -66,6 +66,11 @@
     <OutputPath>bin\MLCE Tweaker Release 4.0\</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MLCE Tweaker Release 4.5|AnyCPU'">
+    <OutputPath>bin\MLCE Tweaker Release 4.5\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSAudioPlayer, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CSAudioPlayer.1.1.2\lib\net461\CSAudioPlayer.dll</HintPath>
@@ -78,6 +83,18 @@
     </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\Desktop\Escritorios\DownCraft\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\Desktop\Escritorios\Escritorio 1\DownCraft RTM Premium V2\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\..\Desktop\Escritorios\Escritorio 1\DownCraft RTM Premium V2\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\..\Desktop\Escritorios\Escritorio 1\DownCraft RTM Premium V2\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
@@ -98,6 +115,12 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -242,6 +265,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Expoint\LOC\SplitterClass.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Expoint\TXT\Notepad-Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +359,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Expoint\TXT\Notepad-Main.resx">
       <DependentUpon>Notepad-Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -368,6 +400,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\apps.zip" />
+    <None Include="Resources\SKIN_DEF_ALEX.bbmodel" />
+    <None Include="Resources\SKIN_DEF_STEVE.bbmodel" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -398,10 +433,16 @@
     <Content Include="Expoint\dannyskey.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\tileData.json" />
+    <None Include="Resources\ZZFolder.png" />
+    <None Include="Resources\ZUnknown.png" />
+    <None Include="Resources\TEXTURE ICON.png" />
+    <None Include="Resources\SKINS ICON.png" />
+    <None Include="Resources\SKIN ICON.png" />
+    <None Include="Resources\youtube_PNG15.png" />
     <None Include="Resources\particles.png" />
     <None Include="Resources\folder-remove.png" />
     <None Include="Resources\folder-plus.png" />
-    <None Include="Resources\terrain.png" />
     <None Include="Resources\originalItems.png" />
     <None Include="Resources\www.youtube.com_ %282%29.png" />
     <None Include="Resources\www.youtube.com_ %281%291.png" />
@@ -415,7 +456,7 @@
     <None Include="Resources\close-box-multiple.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Expoint\PCK\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Expoint\BINKA\Resources\ARROW.png" />
@@ -466,6 +507,70 @@
     <Content Include="Expoint\LOC\Resources\Save.png" />
     <Content Include="Expoint\LOC\Resources\Save1.png" />
     <Content Include="Expoint\LOC\Resources\Zoom.png" />
+    <None Include="Resources\bg.png" />
+    <None Include="Resources\bg1.png" />
+    <None Include="Resources\bg2.png" />
+    <None Include="Resources\changeTile.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\Del.png" />
+    <None Include="Resources\discord.png" />
+    <None Include="Resources\ExportFile.png" />
+    <None Include="Resources\external-content.duckduckgo.png" />
+    <None Include="Resources\ARROW.png" />
+    <None Include="Resources\BINKA ICON.png" />
+    <None Include="Resources\blank.png" />
+    <None Include="Resources\CAPE ICON.png" />
+    <None Include="Resources\COL ICON.png" />
+    <Content Include="Resources\favicon %285%29.ico" />
+    <Content Include="Resources\favicon %286%29.ico" />
+    <None Include="Resources\GRF ICON.png" />
+    <None Include="Resources\GRH ICON.png" />
+    <Content Include="Resources\iconImageList\ARROW.png" />
+    <Content Include="Resources\iconImageList\BINKA ICON.png" />
+    <Content Include="Resources\iconImageList\blank.png" />
+    <Content Include="Resources\iconImageList\CAPE ICON.png" />
+    <Content Include="Resources\iconImageList\COL ICON.png" />
+    <Content Include="Resources\iconImageList\GRF ICON.png" />
+    <Content Include="Resources\iconImageList\GRH ICON.png" />
+    <Content Include="Resources\iconImageList\IMAGE ICON.png" />
+    <Content Include="Resources\iconImageList\INFO ICON.png" />
+    <Content Include="Resources\iconImageList\LOC ICON.png" />
+    <Content Include="Resources\iconImageList\MODELS ICON.png" />
+    <Content Include="Resources\iconImageList\PCK ICON.png" />
+    <Content Include="Resources\iconImageList\SKIN ICON.png" />
+    <Content Include="Resources\iconImageList\SKINS ICON.png" />
+    <Content Include="Resources\iconImageList\TEXTURE ICON.png" />
+    <Content Include="Resources\iconImageList\ZUnknown.png" />
+    <Content Include="Resources\iconImageList\ZZFolder.png" />
+    <None Include="Resources\img.png" />
+    <None Include="Resources\items.png" />
+    <None Include="Resources\More2.png" />
+    <None Include="Resources\MROE.png" />
+    <None Include="Resources\music.png" />
+    <None Include="Resources\NoImageFound.png" />
+    <None Include="Resources\pack.png" />
+    <None Include="Resources\IMAGE ICON.png" />
+    <None Include="Resources\INFO ICON.png" />
+    <None Include="Resources\LOC ICON.png" />
+    <None Include="Resources\MODELS ICON.png" />
+    <None Include="Resources\PCK ICON.png" />
+    <Content Include="Resources\PCK-Studio_Logo.ico" />
+    <None Include="Resources\pckCenterHeader.png" />
+    <None Include="Resources\pckClosed.bmp" />
+    <None Include="Resources\pckClosed.png" />
+    <None Include="Resources\pckDrop.png" />
+    <None Include="Resources\pckOpen.png" />
+    <None Include="Resources\power.png" />
+    <None Include="Resources\power3.png" />
+    <None Include="Resources\ps3.png" />
+    <None Include="Resources\Replace.png" />
+    <None Include="Resources\sdDownload.png" />
+    <None Include="Resources\Splash.png" />
+    <None Include="Resources\terrain.png" />
+    <None Include="Resources\turn-off %281%291.png" />
+    <None Include="Resources\wiiu.png" />
+    <None Include="Resources\wii-u-games-tool.png" />
+    <None Include="Resources\xbox.png" />
     <Content Include="minecraft_tweaker.ico" />
     <None Include="Resources\file-music.png" />
     <None Include="Resources\g6.png" />

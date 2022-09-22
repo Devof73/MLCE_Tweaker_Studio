@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpriteConverterForm));
             this.LB_Files = new System.Windows.Forms.ListBox();
             this.LBX_NeededFiles = new System.Windows.Forms.ListBox();
@@ -44,8 +45,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RBTN_FRM_64 = new System.Windows.Forms.RadioButton();
+            this.RBTN_FRM_32 = new System.Windows.Forms.RadioButton();
+            this.RBTN_FRM_16 = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_buildTerrain = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbx_totalTerrainFiles = new System.Windows.Forms.ListBox();
             this.lbx_TerrainNeededFiles = new System.Windows.Forms.ListBox();
@@ -57,13 +64,16 @@
             this.tbx_TerrainOutputFn = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pbx_result = new System.Windows.Forms.PictureBox();
-            this.btn_buildTerrain = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RCHTBX_LOG = new System.Windows.Forms.RichTextBox();
+            this.TIMER_LOGGER = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_result)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // LB_Files
@@ -186,6 +196,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -194,6 +205,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label1);
@@ -215,6 +227,52 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Items";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RBTN_FRM_64);
+            this.panel1.Controls.Add(this.RBTN_FRM_32);
+            this.panel1.Controls.Add(this.RBTN_FRM_16);
+            this.panel1.Location = new System.Drawing.Point(428, 528);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(265, 39);
+            this.panel1.TabIndex = 15;
+            // 
+            // RBTN_FRM_64
+            // 
+            this.RBTN_FRM_64.AutoSize = true;
+            this.RBTN_FRM_64.Location = new System.Drawing.Point(192, 12);
+            this.RBTN_FRM_64.Name = "RBTN_FRM_64";
+            this.RBTN_FRM_64.Size = new System.Drawing.Size(37, 17);
+            this.RBTN_FRM_64.TabIndex = 16;
+            this.RBTN_FRM_64.TabStop = true;
+            this.RBTN_FRM_64.Text = "64";
+            this.RBTN_FRM_64.UseVisualStyleBackColor = true;
+            this.RBTN_FRM_64.CheckedChanged += new System.EventHandler(this.RBTN_FRM_64_CheckedChanged);
+            // 
+            // RBTN_FRM_32
+            // 
+            this.RBTN_FRM_32.AutoSize = true;
+            this.RBTN_FRM_32.Location = new System.Drawing.Point(115, 12);
+            this.RBTN_FRM_32.Name = "RBTN_FRM_32";
+            this.RBTN_FRM_32.Size = new System.Drawing.Size(37, 17);
+            this.RBTN_FRM_32.TabIndex = 15;
+            this.RBTN_FRM_32.TabStop = true;
+            this.RBTN_FRM_32.Text = "32";
+            this.RBTN_FRM_32.UseVisualStyleBackColor = true;
+            this.RBTN_FRM_32.CheckedChanged += new System.EventHandler(this.RBTN_FRM_32_CheckedChanged);
+            // 
+            // RBTN_FRM_16
+            // 
+            this.RBTN_FRM_16.AutoSize = true;
+            this.RBTN_FRM_16.Location = new System.Drawing.Point(19, 12);
+            this.RBTN_FRM_16.Name = "RBTN_FRM_16";
+            this.RBTN_FRM_16.Size = new System.Drawing.Size(37, 17);
+            this.RBTN_FRM_16.TabIndex = 14;
+            this.RBTN_FRM_16.TabStop = true;
+            this.RBTN_FRM_16.Text = "16";
+            this.RBTN_FRM_16.UseVisualStyleBackColor = true;
+            this.RBTN_FRM_16.CheckedChanged += new System.EventHandler(this.RBTN_FRM_16_CheckedChanged);
             // 
             // pictureBox2
             // 
@@ -250,6 +308,26 @@
             this.tabPage2.Text = "Terrain";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(287, 526);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(488, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Preview Terrain.png";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_buildTerrain
+            // 
+            this.btn_buildTerrain.Location = new System.Drawing.Point(287, 497);
+            this.btn_buildTerrain.Name = "btn_buildTerrain";
+            this.btn_buildTerrain.Size = new System.Drawing.Size(488, 23);
+            this.btn_buildTerrain.TabIndex = 20;
+            this.btn_buildTerrain.Text = "Build Terrain.png";
+            this.btn_buildTerrain.UseVisualStyleBackColor = true;
+            this.btn_buildTerrain.Click += new System.EventHandler(this.btn_buildTerrain_Click);
             // 
             // label7
             // 
@@ -327,6 +405,7 @@
             this.tbx_TerrainOutputFn.Name = "tbx_TerrainOutputFn";
             this.tbx_TerrainOutputFn.Size = new System.Drawing.Size(406, 20);
             this.tbx_TerrainOutputFn.TabIndex = 15;
+            this.tbx_TerrainOutputFn.TextChanged += new System.EventHandler(this.tbx_TerrainOutputFn_TextChanged);
             // 
             // label10
             // 
@@ -348,25 +427,30 @@
             this.pbx_result.TabIndex = 0;
             this.pbx_result.TabStop = false;
             // 
-            // btn_buildTerrain
+            // tabPage3
             // 
-            this.btn_buildTerrain.Location = new System.Drawing.Point(287, 497);
-            this.btn_buildTerrain.Name = "btn_buildTerrain";
-            this.btn_buildTerrain.Size = new System.Drawing.Size(488, 23);
-            this.btn_buildTerrain.TabIndex = 20;
-            this.btn_buildTerrain.Text = "Build Terrain.png";
-            this.btn_buildTerrain.UseVisualStyleBackColor = true;
-            this.btn_buildTerrain.Click += new System.EventHandler(this.btn_buildTerrain_Click);
+            this.tabPage3.Controls.Add(this.RCHTBX_LOG);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(814, 573);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Log";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // RCHTBX_LOG
             // 
-            this.button1.Location = new System.Drawing.Point(287, 526);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(488, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Preview Terrain.png";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.RCHTBX_LOG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RCHTBX_LOG.Location = new System.Drawing.Point(3, 3);
+            this.RCHTBX_LOG.Name = "RCHTBX_LOG";
+            this.RCHTBX_LOG.ReadOnly = true;
+            this.RCHTBX_LOG.Size = new System.Drawing.Size(808, 567);
+            this.RCHTBX_LOG.TabIndex = 0;
+            this.RCHTBX_LOG.Text = "";
+            // 
+            // TIMER_LOGGER
+            // 
+            this.TIMER_LOGGER.Tick += new System.EventHandler(this.TIMER_LOGGER_Tick);
             // 
             // SpriteConverterForm
             // 
@@ -381,10 +465,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_result)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,5 +508,12 @@
         private System.Windows.Forms.PictureBox pbx_result;
         private System.Windows.Forms.Button btn_buildTerrain;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton RBTN_FRM_64;
+        private System.Windows.Forms.RadioButton RBTN_FRM_32;
+        private System.Windows.Forms.RadioButton RBTN_FRM_16;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RichTextBox RCHTBX_LOG;
+        private System.Windows.Forms.Timer TIMER_LOGGER;
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using Microsoft.WindowsAPICodePack.Dialogs.Controls;
 using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils;
 using FuiEditor;
+using System.Runtime.InteropServices;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
 {
@@ -29,19 +30,42 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         public FUI_Editor_Main(string filepath)
         {
             InitializeComponent();
+            DefaultInitialization(filepath);
+        }
+        public FUI_Editor_Main(string filepath, bool ghost)
+        {
+            InitializeComponent();
+            if (ghost)
+            {
+
+            }
+            else
+            {
+                DefaultInitialization(filepath);
+            }
+
+        }
+        internal void GhostInitialization()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Visible = false;
+            }
+        }
+        internal void DefaultInitialization(string filepath)
+        {
             Bitmap Ico = Properties.Resources.card_multiple;
             IntPtr Hicon = Ico.GetHicon();
             Icon myIcon = Icon.FromHandle(Hicon);
             Icon = myIcon;
             Ico.Dispose();
             myIcon.Dispose();
-            imageList.ColorDepth = ColorDepth.Depth32Bit;;
+            imageList.ColorDepth = ColorDepth.Depth32Bit; ;
             OpenFui(filepath);
             this.Text = "F.J.U.I. = " + filepath;
             InAppUserSettings.Default.S_Ins_Fui = InAppUserSettings.Default.S_Ins_Fui + 1;
             InitListSetMarks(filepath);
         }
-
         private void OnClickFileOpen(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -57,12 +81,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
             }
             fileDialog.Dispose();
         }
-
         private void OnClickFileSave(object sender, EventArgs e)
         {
             SaveFui(currentOpenFui);
         }
-
         private void OnClickFileSaveAs(object sender, EventArgs e)
         {
             SaveFileDialog fileDialog = new SaveFileDialog()
@@ -338,13 +360,15 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
+
             if (shouldSaveFui && e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = NotifySave();
-
             }
-            
-
+            else
+            {
+                InAppUserSettings.Default.S_Ins_Fui = InAppUserSettings.Default.S_Ins_Fui - 1;
+          }
         }
 
         private void OnOpendFui(string filepath)
@@ -632,7 +656,6 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
 
         private void FUI_Editor_Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Minecraft_LCE_Tweaker_Studio.Expoint.InAppUserSettings.Default.S_Ins_Fui = Minecraft_LCE_Tweaker_Studio.Expoint.InAppUserSettings.Default.S_Ins_Fui + 1;
         }
 
         private void fileSaveAsStripMenu_Click(object sender, EventArgs e)
@@ -919,6 +942,61 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
                        + "Selected folder frames count: " + flnsInPt.Count(), "Error",
                        MessageBoxButtons.OK, icon: MessageBoxIcon.Hand);
                 }
+            }
+        }
+
+        private void inToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("[*] Reversing color RB");
+            var selIndexes = imageListView.SelectedItems;
+            if (selIndexes.Count != 0)
+            {
+                InvertIndexedBitmapRb(selIndexes);
+            }
+        }
+        internal void InvertIndexedBitmapRb(ListView.SelectedListViewItemCollection selectedIndices)
+        {
+
+            for (int i = 0; i < selectedIndices.Count; i++)
+            {
+                var selIndex = selectedIndices[i].Index;
+                var selected = originalImagesData[selIndex];
+                Console.WriteLine("[?] Index -> " + selIndex);
+                Bitmap imageLoaded = ByteArrayToBitmap(selected);
+                ImageFormat originalFormat = originalImageFormats[selIndex];
+                MemoryStream saveStream = new MemoryStream();
+                if (imageLoaded != null)
+                {
+                    Console.WriteLine("[!] Operating..");
+                    ImageUtils.ReverseColorRB((Bitmap)imageLoaded);
+                    imageLoaded.Save(saveStream, originalFormat);
+                    originalImagesData[selIndex] = saveStream.ToArray();
+                    imageList.Images[selIndex] = ImageUtils.CreateThumbnail(imageLoaded, imageList.ImageSize);
+                    imageListView.Items[selIndex].Text = $"{imageLoaded.Width}x{imageLoaded.Height}";
+                    saveStream.Dispose();
+                    Console.WriteLine("[!] Success");
+
+                    shouldSaveFui = true;
+                }
+            }
+            
+        }
+        internal Bitmap ByteArrayToBitmap(byte[] data)
+        {
+            Bitmap bmp;
+            using (var ms = new MemoryStream(data))
+            {
+                return bmp = new Bitmap(ms);
+            }
+        }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("[*] Reversing color RB");
+            var selIndexes = imageListView.SelectedItems;
+            if (selIndexes.Count != 0)
+            {
+                InvertIndexedBitmapRb(selIndexes);
             }
         }
     }
