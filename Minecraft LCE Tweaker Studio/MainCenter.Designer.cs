@@ -1,7 +1,7 @@
 ﻿
 namespace Minecraft_LCE_Tweaker_Studio
 {
-    partial class Main_AppCenter
+    partial class MainCenter
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_AppCenter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainCenter));
             this.LB_Title_Headert = new Siticone.UI.WinForms.SiticoneLabel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.BTN_PCK_TOOL = new Guna.UI2.WinForms.Guna2Button();
@@ -93,9 +93,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.Btn4_Credits = new Guna.UI2.WinForms.Guna2Button();
             this.BTN_NWEDIT = new Guna.UI2.WinForms.Guna2Button();
             this.BTN_SaveInitialWorkspace = new Guna.UI2.WinForms.Guna2Button();
+            this.dbg_btn = new Guna.UI2.WinForms.Guna2Button();
             this.Btn3_ExitAll = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dbg_btn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PANEL_INSTANCE_INFO.SuspendLayout();
@@ -910,11 +910,14 @@ namespace Minecraft_LCE_Tweaker_Studio
             // TESTING_LABEL
             // 
             this.TESTING_LABEL.AutoSize = true;
-            this.TESTING_LABEL.Location = new System.Drawing.Point(233, 669);
+            this.TESTING_LABEL.BackColor = System.Drawing.Color.Silver;
+            this.TESTING_LABEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.TESTING_LABEL.Location = new System.Drawing.Point(238, 680);
             this.TESTING_LABEL.Name = "TESTING_LABEL";
-            this.TESTING_LABEL.Size = new System.Drawing.Size(31, 13);
+            this.TESTING_LABEL.Size = new System.Drawing.Size(44, 12);
             this.TESTING_LABEL.TabIndex = 22;
-            this.TESTING_LABEL.Text = "haha";
+            this.TESTING_LABEL.Text = "devmode";
+            this.TESTING_LABEL.Click += new System.EventHandler(this.TESTING_LABEL_Click);
             // 
             // CommonTimer
             // 
@@ -925,15 +928,14 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dbg_btn);
             this.panel1.Controls.Add(this.BTN_COMPILE_EDITION);
             this.panel1.Controls.Add(this.BTN_Sel_GameFolder);
             this.panel1.Controls.Add(this.Btn4_Credits);
             this.panel1.Controls.Add(this.BTN_NWEDIT);
             this.panel1.Controls.Add(this.BTN_SaveInitialWorkspace);
-            this.panel1.Location = new System.Drawing.Point(336, 1);
+            this.panel1.Location = new System.Drawing.Point(509, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(635, 72);
+            this.panel1.Size = new System.Drawing.Size(462, 72);
             this.panel1.TabIndex = 26;
             // 
             // BTN_COMPILE_EDITION
@@ -949,7 +951,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_COMPILE_EDITION.HoverState.Parent = this.BTN_COMPILE_EDITION;
             this.BTN_COMPILE_EDITION.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.cube;
             this.BTN_COMPILE_EDITION.ImageSize = new System.Drawing.Size(22, 22);
-            this.BTN_COMPILE_EDITION.Location = new System.Drawing.Point(485, 34);
+            this.BTN_COMPILE_EDITION.Location = new System.Drawing.Point(306, 36);
             this.BTN_COMPILE_EDITION.Name = "BTN_COMPILE_EDITION";
             this.BTN_COMPILE_EDITION.ShadowDecoration.Parent = this.BTN_COMPILE_EDITION;
             this.BTN_COMPILE_EDITION.Size = new System.Drawing.Size(143, 31);
@@ -971,7 +973,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_Sel_GameFolder.HoverState.Parent = this.BTN_Sel_GameFolder;
             this.BTN_Sel_GameFolder.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder;
             this.BTN_Sel_GameFolder.ImageSize = new System.Drawing.Size(22, 22);
-            this.BTN_Sel_GameFolder.Location = new System.Drawing.Point(336, 3);
+            this.BTN_Sel_GameFolder.Location = new System.Drawing.Point(157, 5);
             this.BTN_Sel_GameFolder.Name = "BTN_Sel_GameFolder";
             this.BTN_Sel_GameFolder.ShadowDecoration.Parent = this.BTN_Sel_GameFolder;
             this.BTN_Sel_GameFolder.Size = new System.Drawing.Size(143, 31);
@@ -994,7 +996,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.Btn4_Credits.HoverState.Parent = this.Btn4_Credits;
             this.Btn4_Credits.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.TutorialIcon;
             this.Btn4_Credits.ImageSize = new System.Drawing.Size(30, 30);
-            this.Btn4_Credits.Location = new System.Drawing.Point(187, 13);
+            this.Btn4_Credits.Location = new System.Drawing.Point(8, 15);
             this.Btn4_Credits.Name = "Btn4_Credits";
             this.Btn4_Credits.ShadowDecoration.Parent = this.Btn4_Credits;
             this.Btn4_Credits.Size = new System.Drawing.Size(143, 39);
@@ -1016,7 +1018,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_NWEDIT.HoverState.Parent = this.BTN_NWEDIT;
             this.BTN_NWEDIT.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder_open_outline;
             this.BTN_NWEDIT.ImageSize = new System.Drawing.Size(22, 22);
-            this.BTN_NWEDIT.Location = new System.Drawing.Point(485, 3);
+            this.BTN_NWEDIT.Location = new System.Drawing.Point(306, 5);
             this.BTN_NWEDIT.Name = "BTN_NWEDIT";
             this.BTN_NWEDIT.ShadowDecoration.Parent = this.BTN_NWEDIT;
             this.BTN_NWEDIT.Size = new System.Drawing.Size(143, 31);
@@ -1038,7 +1040,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_SaveInitialWorkspace.HoverState.Parent = this.BTN_SaveInitialWorkspace;
             this.BTN_SaveInitialWorkspace.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder_star;
             this.BTN_SaveInitialWorkspace.ImageSize = new System.Drawing.Size(22, 22);
-            this.BTN_SaveInitialWorkspace.Location = new System.Drawing.Point(336, 34);
+            this.BTN_SaveInitialWorkspace.Location = new System.Drawing.Point(157, 36);
             this.BTN_SaveInitialWorkspace.Name = "BTN_SaveInitialWorkspace";
             this.BTN_SaveInitialWorkspace.ShadowDecoration.Parent = this.BTN_SaveInitialWorkspace;
             this.BTN_SaveInitialWorkspace.Size = new System.Drawing.Size(143, 31);
@@ -1046,6 +1048,29 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_SaveInitialWorkspace.Text = "Save as FAV game data";
             this.BTN_SaveInitialWorkspace.UseTransparentBackground = true;
             this.BTN_SaveInitialWorkspace.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // dbg_btn
+            // 
+            this.dbg_btn.Animated = true;
+            this.dbg_btn.BackColor = System.Drawing.Color.Transparent;
+            this.dbg_btn.BorderRadius = 2;
+            this.dbg_btn.BorderThickness = 1;
+            this.dbg_btn.CheckedState.Parent = this.dbg_btn;
+            this.dbg_btn.CustomImages.Parent = this.dbg_btn;
+            this.dbg_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dbg_btn.Font = new System.Drawing.Font("SCE-PS3 Rodin LATIN", 12F, System.Drawing.FontStyle.Bold);
+            this.dbg_btn.ForeColor = System.Drawing.Color.Black;
+            this.dbg_btn.HoverState.Parent = this.dbg_btn;
+            this.dbg_btn.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.application_cog_outline;
+            this.dbg_btn.ImageSize = new System.Drawing.Size(30, 30);
+            this.dbg_btn.Location = new System.Drawing.Point(828, 654);
+            this.dbg_btn.Name = "dbg_btn";
+            this.dbg_btn.ShadowDecoration.Parent = this.dbg_btn;
+            this.dbg_btn.Size = new System.Drawing.Size(143, 39);
+            this.dbg_btn.TabIndex = 26;
+            this.dbg_btn.Text = "★ Debug";
+            this.dbg_btn.UseTransparentBackground = true;
+            this.dbg_btn.Click += new System.EventHandler(this.dbg_btn_Click);
             // 
             // Btn3_ExitAll
             // 
@@ -1082,34 +1107,13 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.label1.TabIndex = 27;
             this.label1.Text = "RMB: Options";
             // 
-            // dbg_btn
-            // 
-            this.dbg_btn.Animated = true;
-            this.dbg_btn.BackColor = System.Drawing.Color.Transparent;
-            this.dbg_btn.BorderRadius = 2;
-            this.dbg_btn.BorderThickness = 1;
-            this.dbg_btn.CheckedState.Parent = this.dbg_btn;
-            this.dbg_btn.CustomImages.Parent = this.dbg_btn;
-            this.dbg_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dbg_btn.Font = new System.Drawing.Font("SCE-PS3 Rodin LATIN", 12F, System.Drawing.FontStyle.Bold);
-            this.dbg_btn.ForeColor = System.Drawing.Color.Black;
-            this.dbg_btn.HoverState.Parent = this.dbg_btn;
-            this.dbg_btn.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.application_cog_outline;
-            this.dbg_btn.ImageSize = new System.Drawing.Size(30, 30);
-            this.dbg_btn.Location = new System.Drawing.Point(38, 13);
-            this.dbg_btn.Name = "dbg_btn";
-            this.dbg_btn.ShadowDecoration.Parent = this.dbg_btn;
-            this.dbg_btn.Size = new System.Drawing.Size(143, 39);
-            this.dbg_btn.TabIndex = 26;
-            this.dbg_btn.Text = "★ Debug";
-            this.dbg_btn.UseTransparentBackground = true;
-            // 
             // Main_AppCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(977, 705);
+            this.Controls.Add(this.dbg_btn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TESTING_LABEL);
@@ -1192,7 +1196,6 @@ namespace Minecraft_LCE_Tweaker_Studio
         private System.Windows.Forms.Label TESTING_LABEL;
         private Guna.UI2.WinForms.Guna2Button BTN_BINK_TOOL;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.Timer CommonTimer;
         private Guna.UI2.WinForms.Guna2Button BTN_NWEDIT;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button BTN_COMPILE_EDITION;
@@ -1210,5 +1213,6 @@ namespace Minecraft_LCE_Tweaker_Studio
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2Button BTN_PCK_TOOL;
         private Guna.UI2.WinForms.Guna2Button dbg_btn;
+        public System.Windows.Forms.Timer CommonTimer;
     }
 }

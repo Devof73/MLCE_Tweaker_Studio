@@ -25,7 +25,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             UserSettings.IsNewUser = false;
             Expoint.InAppUserSettings.Default.IsNewUser = false;
             Expoint.InAppUserSettings.Default.Save();
-            Main_AppCenter main_AppCenter = new Main_AppCenter();
+            MainCenter main_AppCenter = new MainCenter();
             main_AppCenter.Show();
             this.Hide();
         }

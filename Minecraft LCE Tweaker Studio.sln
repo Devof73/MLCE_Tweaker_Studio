@@ -8,6 +8,7 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		MLCE 4.6|Any CPU = MLCE 4.6|Any CPU
 		MLCE Tweaker Release 2.0|Any CPU = MLCE Tweaker Release 2.0|Any CPU
 		MLCE Tweaker Release 3.5|Any CPU = MLCE Tweaker Release 3.5|Any CPU
 		MLCE Tweaker Release 4.0|Any CPU = MLCE Tweaker Release 4.0|Any CPU
@@ -17,6 +18,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE 4.6|Any CPU.ActiveCfg = MLCE Tweaker Release 4.5|Any CPU
+		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE 4.6|Any CPU.Build.0 = MLCE Tweaker Release 4.5|Any CPU
 		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 2.0|Any CPU.ActiveCfg = MLCE Tweaker Release 2.0|Any CPU
 		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 2.0|Any CPU.Build.0 = MLCE Tweaker Release 2.0|Any CPU
 		{86ED462E-D967-43F5-ADEA-4D5BFAD5C72E}.MLCE Tweaker Release 3.5|Any CPU.ActiveCfg = MLCE Tweaker Release 3.5|Any CPU

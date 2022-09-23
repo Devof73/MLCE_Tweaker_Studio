@@ -303,14 +303,11 @@ namespace ftp
                 return false;
             }
         }
-        internal bool DeleteFileOnFtpServer(Uri serverUri, string ftpUsername = "y", string ftpPassword = "psw")
+        internal bool DeleteFileOnFtpServer(string uriString, bool ssl = false,bool binary = false, string ftpUsername = "def", string ftpPassword = "default")
         {
+            var serverUri = new Uri(uriString);
             try
             {
-                // The serverUri parameter should use the ftp:// scheme.
-                // It contains the name of the server file that is to be deleted.
-                // Example: ftp://contoso.com/someFile.txt.
-                // 
 
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
                 {
@@ -320,14 +317,16 @@ namespace ftp
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(serverUri);
                 request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
-
+                request.UseBinary = binary;
+                request.EnableSsl = ssl;
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                //Console.WriteLine("Delete status: {0}", response.StatusDescription);
+                Console.WriteLine("[!¡] DEL: {0}", response.StatusDescription);
                 response.Close();
                 return true;
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"[!*] ERR: {ex.GetType()} : {ex.Message} ||| {ex.StackTrace}");
                 return false;
             }
         }

@@ -284,7 +284,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                 var onlineFileName = OnlineExistencyQueryFileName.Split('\\').Last().Replace("\\","/");
                 CompLog.WriteLine("[!] Online File Name returned " + onlineFileName);
                 FTP.DownloadFile(onlineFileName,LocalbackupDownloadPath + "/" + onlineFileName);
-                FTP.DeleteFileOnFtpServer(new Uri(onlineFileName));
+                FTP.DeleteFileOnFtpServer(onlineFileName);
                 FTP.Upload(OnlineExistencyQueryFileName, replacementSourceFileName);
 
             }

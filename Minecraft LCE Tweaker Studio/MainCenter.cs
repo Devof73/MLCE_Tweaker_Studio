@@ -10,7 +10,7 @@ using TagLib.IFD.Entries;
 
 namespace Minecraft_LCE_Tweaker_Studio
 {
-    public partial class Main_AppCenter : Form
+    public partial class MainCenter : Form
     {
         string FileName = @"C:\";
         internal OpenFileDialog OFD = new OpenFileDialog();
@@ -41,7 +41,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         internal Color AnimatedColorB = Color.Gainsboro;
         internal bool InstancesRunning = false;
 
-        private const string rpcCliId = "1019318473068904478";
+        internal const string rpcCliId = "1019318473068904478";
 
         internal const string rpcMessage_working = "Working on {0} instances.";
         internal const string rpcMessage_onProject = "Working on the project.";
@@ -62,7 +62,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             "Idle, going to sleep",
             "Idle testing program."};
         internal DiscordRPC.DiscordRpcClient RPCCli = new DiscordRPC.DiscordRpcClient(rpcCliId);
-        public Main_AppCenter()
+        public MainCenter()
         {
             InitializeComponent();
             Expoint.InAppUserSettings.Default.PropertyChanged += Default_PropertyChanged;
@@ -1110,6 +1110,45 @@ namespace Minecraft_LCE_Tweaker_Studio
         {
             //PckStudio.MainForm mainForm = new PckStudio.MainForm();
             //mainForm.Show();
+        }
+        internal int devSteps = 0;
+        private void TESTING_LABEL_Click(object sender, EventArgs e)
+        {
+            devSteps += 1;
+            switch (devSteps)
+            {
+                case 1:
+                    {
+                        TESTING_LABEL.Text = "dev 1";
+                        break;
+
+                    }
+                case 2:
+                    {
+                        TESTING_LABEL.Text = "dev 2";
+                        break;
+                    }
+                case 3:
+                    {
+                        TESTING_LABEL.Text = "dev activated";
+                        dbg_btn.Visible = true;
+                        break;
+                    }
+                case 4:
+                    {
+                        TESTING_LABEL.Text = "dev off";
+                        dbg_btn.Visible = false;
+                        devSteps = 0;
+                        break;
+                    }
+            }
+        }
+
+        private void dbg_btn_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[DBG] Entered internal...");
+            Dbgform dbg = new Dbgform(this);
+            dbg.ShowDialog();
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
     public partial class EditionManager : Form
     {
         internal readonly string DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MLCE Modding\\";
-        Main_AppCenter mai;
+        MainCenter mai;
         List<string> savedataList = new List<string>();
-        public EditionManager(Main_AppCenter ma)
+        public EditionManager(MainCenter ma)
         {
             InitializeComponent();
             mai = ma;

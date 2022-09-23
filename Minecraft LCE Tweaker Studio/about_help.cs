@@ -13,12 +13,12 @@ namespace Minecraft_LCE_Tweaker_Studio
 {
     public partial class About_help : Form
     {
-        internal Main_AppCenter theSenderInstance;
+        internal MainCenter theSenderInstance;
         internal bool msstoping = false;
         internal CSAudioPlayer.AudioPlayer cplo = new CSAudioPlayer.AudioPlayer();
 
         internal Timer bufftimer = new Timer();
-        public About_help(Main_AppCenter senderToManage)
+        public About_help(MainCenter senderToManage)
         {
             cplo.Channels = CSAudioPlayer.Channels.channels2;
             cplo.Mode = CSAudioPlayer.Mode.WasapiOut;

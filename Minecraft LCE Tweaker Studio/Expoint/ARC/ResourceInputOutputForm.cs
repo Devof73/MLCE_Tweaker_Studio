@@ -24,7 +24,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
         {
             InitializeComponent();
         }
-        public ResourceInputOutputForm(string quickInput, string quickOutput, Main_AppCenter clientMain)
+        public ResourceInputOutputForm(string quickInput, string quickOutput, MainCenter clientMain)
         {
             InitializeComponent();
             _inPath = quickInput;

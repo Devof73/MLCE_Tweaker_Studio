@@ -24,7 +24,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             }
             if (Expoint.InAppUserSettings.Default.IsNewUser == false)
             {
-                Application.Run(new Main_AppCenter());
+                Application.Run(new MainCenter());
             }
 
         }

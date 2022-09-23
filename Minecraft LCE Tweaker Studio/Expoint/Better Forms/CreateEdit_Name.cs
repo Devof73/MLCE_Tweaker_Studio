@@ -7,7 +7,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
 {
     public partial class CreateEdit_Name : Form
     {
-        Main_AppCenter main;
+        MainCenter main;
         internal readonly string DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MLCE Modding\\";
         internal const string DataSavePath_Name = "savedata";
         internal readonly string[] defaultResourcesNames =
@@ -31,7 +31,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             "terrainMipMapLevel3.png",
             "colours.col",
         };
-        public CreateEdit_Name(Main_AppCenter ma)
+        public CreateEdit_Name(MainCenter ma)
         {
             InitializeComponent();
             main = ma;
