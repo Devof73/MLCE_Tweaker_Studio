@@ -1,21 +1,23 @@
-﻿using System;
+﻿using FuiEditor.Forms;
+using Minecraft_LCE_Tweaker_Studio.Expoint;
+using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI;
+using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Forms;
+using System;
 using System.ComponentModel;
-using System.Deployment.Internal;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
-using TagLib.IFD.Entries;
 
 namespace Minecraft_LCE_Tweaker_Studio
 {
-    public partial class MainCenter : Form
+    public partial class MainCenter : DarkUI.Forms.DarkForm
     {
-        string FileName = @"C:\";
+        public string FileName = @"C:\";
         internal OpenFileDialog OFD = new OpenFileDialog();
         public CSAudioPlayer.cAudioPlayerLineOut AudioPlayerLineOut = new CSAudioPlayer.cAudioPlayerLineOut();
-        
+
         internal const string ttf1_mojanglesRegular = "Mojangles";
         internal const string ttf2_minecrafter = "Minecrafter";
         internal const string ttf3_minecrafterAlt = "Minecrafter Alt";
@@ -52,7 +54,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         internal const string rpcMessage_onCol = "Working in game Coloration Editor.";
         internal const string rpcMessage_onbink = "Working in game binka i/o.";
         internal const string rpcMessage_compiling = "Compiling {0}";
-        internal readonly string[] rpcMessage_Idling = { 
+        internal readonly string[] rpcMessage_Idling = {
             "Idle",
             "Idle thinking ideas..",
             "Idle looking into the distance..",
@@ -65,6 +67,8 @@ namespace Minecraft_LCE_Tweaker_Studio
         public MainCenter()
         {
             InitializeComponent();
+            Opacity = 0.1;
+            new FadeForm(this).AnimationStart();
             Expoint.InAppUserSettings.Default.PropertyChanged += Default_PropertyChanged;
             RPC_SetPresence(DateTime.Now, false);
             DetectFonts(_FontPath, ttf1_mojanglesRegular, _ResTtf1);
@@ -89,9 +93,9 @@ namespace Minecraft_LCE_Tweaker_Studio
         readonly bool isTheCreator = Environment.UserName == "JP";
         #endregion
         #region #Discord Rich Presence 
-        internal void RPC_SetPresence(DateTime StartTime, bool Update,string State = "", string Details = "", string LargeImgKey = "", string SmallImageKey = "",string LargeImageToolTip = "", string SmallImageToolTip = "")
+        internal void RPC_SetPresence(DateTime StartTime, bool Update, string State = "", string Details = "", string LargeImgKey = "", string SmallImageKey = "", string LargeImageToolTip = "", string SmallImageToolTip = "")
         {
-           if (Update)
+            if (Update)
             {
                 RPCCli.UpdateDetails(Details);
                 RPCCli.UpdateState(State);
@@ -125,7 +129,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 RPCCli?.UpdateDetails("");
             }
-            
+
             if (Expoint.InAppUserSettings.Default.S_Ins_Col == 1)
             {
                 RPCCli?.UpdateState(rpcMessage_onCol);
@@ -166,7 +170,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         #endregion
 
         #region #TTF
-        private void DetectFonts(string instpath,string fname, byte[] DataArray, float chkFntSize = 12, FontStyle style = FontStyle.Regular, GraphicsUnit GU = GraphicsUnit.Pixel)
+        private void DetectFonts(string instpath, string fname, byte[] DataArray, float chkFntSize = 12, FontStyle style = FontStyle.Regular, GraphicsUnit GU = GraphicsUnit.Pixel)
         {
             if (CheckTtfExist(fname, chkFntSize, style, GU) is false)
             {
@@ -216,29 +220,29 @@ namespace Minecraft_LCE_Tweaker_Studio
             }
             catch (Exception ex)
             {
-                try { File.Delete(Application.StartupPath + @"\ttfError.txt"); } catch {}
-                File.WriteAllText(Application.StartupPath+@"\ttfError.txt",ex.ToString() + "\r"+ex.Message+"\r"+ex.Source+"\r"+ex.StackTrace+"\r"+ex.TargetSite.Name);
+                try { File.Delete(Application.StartupPath + @"\ttfError.txt"); } catch { }
+                File.WriteAllText(Application.StartupPath + @"\ttfError.txt", ex.ToString() + "\r" + ex.Message + "\r" + ex.Source + "\r" + ex.StackTrace + "\r" + ex.TargetSite.Name);
                 return false;
             }
-            
+
         }
-        bool TtfDoesntExists(byte[] ttfdata,string name, string instPath)
-         
+        bool TtfDoesntExists(byte[] ttfdata, string name, string instPath)
+
         {
-            MessageBox.Show($"Installing TTF... [{name}]");
+            DarkUI.Forms.DarkMessageBox.ShowInformation($"Installing TTF... [{name}]", "!");
             if (WriteAndInstall_Ttf(ttfdata, instPath) is true)
             {
                 Console.WriteLine("TTF Instalation Request Success. Restarting...");
-                Application.Restart(); 
-                Environment.Exit(0x2); 
-                return true; 
+                Application.Restart();
+                Environment.Exit(0x2);
+                return true;
             }
 
 
             bool finalResult = CheckTtfExist(ttf1_mojanglesRegular, 12) is false;
             if (finalResult == true)
             {
-                MessageBox.Show("TTF install error or canceled, cannot start. Try again later.", "Error");
+                DarkUI.Forms.DarkMessageBox.ShowInformation("TTF install error or canceled, cannot start. Try again later.", "Error");
                 Environment.Exit(_ExitCodeErrorTtf);
                 return false;
             }
@@ -275,7 +279,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             {
                 if (FI.Extension == ".txt")
                 {
-                    if (MessageBox.Show("Wanna open this TXT on the game splashes editor?", "?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (DarkUI.Forms.DarkMessageBox.ShowInformation("Wanna open this TXT on the game splashes editor?", "?", DarkUI.Forms.DarkDialogButton.YesNo) is (DialogResult)DarkUI.Forms.DarkDialogButton.YesNo)
                     {
                         string fname = FI.FullName;
                         Expoint.SplashEditor.SplashEdit sed = new Expoint.SplashEditor.SplashEdit(fname);
@@ -389,7 +393,7 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void BTN_FUI_TOOL_Click(object sender, EventArgs e)
         {
-            Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.FUI_Editor_Main FUIEM = new Expoint.FJUI.FUI_Editor_Main(FileName);
+            Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.EditorGUI FUIEM = new Expoint.FJUI.EditorGUI(FileName);
             FUIEM.Show();
         }
         internal void App_TVW_ListGAF_Dir(string path)
@@ -535,7 +539,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                     string sRtag = sTag.Substring(sTag.LastIndexOf("\\"));
                     LB_TEVW_SELC_FILE.Text = sRtag;
                 }
-               
+
 
             }
             catch
@@ -560,17 +564,17 @@ namespace Minecraft_LCE_Tweaker_Studio
                     Expoint.InAppUserSettings.Default.GAF_PATH = LB_GAF.Text;
                     string GAF_PATH = Expoint.InAppUserSettings.Default.GAF_PATH;
                     LB_State.Text = "Saved Initial Modding Workspace Folder: GAF_PATH";
-                    MessageBox.Show("Saved Initial Modding Workspace Folder!\r" + GAF_PATH);
+                    DarkUI.Forms.DarkMessageBox.ShowInformation("Saved Initial Modding Workspace Folder!\r" + GAF_PATH, "!");
                 }
                 else
                 {
-                    MessageBox.Show("Select GAF Folder.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    DarkUI.Forms.DarkMessageBox.ShowWarning("Select GAF Folder.", "Error");
 
                 }
             }
             else
             {
-                MessageBox.Show("Select GAF Folder.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DarkUI.Forms.DarkMessageBox.ShowWarning("Select GAF Folder.", "Error");
 
             }
         }
@@ -659,18 +663,17 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         }
 
-    
+
 
         private void BTN_INST_SPRITE_TOOL_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LBL_ResetSettings_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("All Settings Will Be Lost, are sure of reset user-app settings?.",
-                "¿?", MessageBoxButtons.YesNo,
-                icon: MessageBoxIcon.Exclamation) is DialogResult.Yes)
+            if (DarkUI.Forms.DarkMessageBox.ShowWarning("All Settings Will Be Lost, are sure of reset user-app settings?.",
+                "¿?", DarkUI.Forms.DarkDialogButton.YesNo) is DialogResult.Yes)
             {
                 Expoint.InAppUserSettings.Default.Reset();
             }
@@ -685,11 +688,11 @@ namespace Minecraft_LCE_Tweaker_Studio
                 if (FI.Extension != String.Empty)
                 {
                     App_CheckFormatCapabilities(FI);
-                   
+
                     FileName = FI.FullName;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("EX! : " + ex.Message);
             }
@@ -705,7 +708,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         {
             if (FileName.EndsWith(".scl"))
             {
-                var result = MessageBox.Show("You have currently a file opened what we can open with this tool, wanna edit it?", "¿?", buttons: MessageBoxButtons.OK) is DialogResult.Yes;
+                var result = DarkUI.Forms.DarkMessageBox.ShowInformation("You have currently a file opened what we can open with this tool, wanna edit it?", "¿?", buttons: DarkUI.Forms.DarkDialogButton.YesNo) is DialogResult.Yes;
 
                 if (result is true)
                 {
@@ -714,7 +717,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                     sr.Close();
                     if (data.Contains("¨") == false)
                     {
-                        MessageBox.Show("Invalid saveboard value.", "Invalid File Error.", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Hand);
+                        DarkUI.Forms.DarkMessageBox.ShowError("Invalid saveboard value.", "Invalid File Error.", DarkUI.Forms.DarkDialogButton.Ok);
                         return;
                     }
                     else if (data.Contains("¨") is true)
@@ -814,7 +817,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                 else if (result is DialogResult.No)
                 {
                     Expoint.BINKA.AudioBinkInputOutputForm ABIOF = new Expoint.BINKA.AudioBinkInputOutputForm()
-                    {};
+                    { };
                     ABIOF.Show();
                 }
             }
@@ -824,7 +827,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                 { };
                 ABIOF.Show();
             }
-           
+
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
@@ -840,7 +843,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                 BTN_TOOL_SPLASH.Enabled = true;
                 BTN_COL_TOOL.Enabled = true;
             }
-        }    
+        }
         internal int anim_col_r = 0;
         internal int anim_col_g = 0;
         internal int anim_col_b = 0;
@@ -921,7 +924,7 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void BTN_COMPILE_EDITION_Click(object sender, EventArgs e)
         {
-            Expoint.Better_Forms.compilate_ps3 cps3 = new Expoint.Better_Forms.compilate_ps3(); 
+            Expoint.Better_Forms.compilate_ps3 cps3 = new Expoint.Better_Forms.compilate_ps3();
             cps3.ShowDialog();
         }
 
@@ -977,7 +980,7 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void ctwk_tbx1_TextChanged(object sender, EventArgs e)
         {
-                ctwk_btn6.Enabled = ctwk_tbx1.Text != "" && ctwk_tbx1.Text != string.Empty;
+            ctwk_btn6.Enabled = ctwk_tbx1.Text != "" && ctwk_tbx1.Text != string.Empty;
         }
 
         private void ctwk_btn6_Click(object sender, EventArgs e)
@@ -997,7 +1000,7 @@ namespace Minecraft_LCE_Tweaker_Studio
                 App_TVW_ListGAF_Dir(workingPath);
             }
             Obj = null;
-          
+
 
         }
         private string CharRemove(string target, char[] illegal)
@@ -1048,15 +1051,15 @@ namespace Minecraft_LCE_Tweaker_Studio
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    MessageBox.Show("File Permissions error. Check savedata folder:\r"+Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\MLCE Modding\\savedata", "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                    MessageBox.Show("File Permissions error. Check savedata folder:\r" + Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MLCE Modding\\savedata", "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                 }
-                
+
             }
         }
-       
+
         private void ctwk_btn2_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -1150,5 +1153,18 @@ namespace Minecraft_LCE_Tweaker_Studio
             Dbgform dbg = new Dbgform(this);
             dbg.ShowDialog();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            var BEC = new MinecraftLegacyConsoleRE.GameFile_FUI.Customizer.BEND_CUSTOMIZER();
+            Bitmap[] bmps = BEC.SG_MAKE_BUTTONS(
+                "C:\\Users\\JP\\Desktop\\Desks\\Escritorio 1\\Minecraft PS3 Modding Tool Kit\\Ediciones\\Minecraft Ultimate Edition\\80.0\\.Java\\rrtext\\textures\\gui\\light_mode\\widgets.png");
+           
+            var bmp = bmps[0].Clone() as Bitmap;
+            
+            new PicViewer(new Bitmap(bmp, 400, 40)).ShowDialog();
+
+        }
+
     }
 }

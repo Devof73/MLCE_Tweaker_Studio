@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using System.Drawing.Imaging;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
 {
@@ -25,6 +21,11 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
         public ColorGuiHelper()
         {
             InitializeComponent();
+            Initial();
+
+        }
+        void Initial()
+        {
             Refr.Interval = 500;
             Refr.Start();
             Refr.Tick += Refr_Tick;
@@ -34,7 +35,16 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
             DRPDWN_IMG_VIEW_MODE.Items.Add("zoom");
             DRPDWN_IMG_VIEW_MODE.Items.Add("center");
             DRPDWN_IMG_VIEW_MODE.SelectedIndex = 2;
+        }
+        public ColorGuiHelper(string[] filenames, object sender)
+        {
+            InitializeComponent();
+            Initial();
 
+            Console.WriteLine("[!] Quick Ins called by " + (sender.ToString()));
+            LBX_FILES.Items.Clear();
+            BeginReadingImages(filenames);
+            TCTRL_MainTC.TabPages[1].Select();
         }
         private void Refr_Tick(object sender, EventArgs e)
         {
@@ -76,14 +86,15 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                     BeginReadingImages(rst);
                 }
             }
+
         }
         private void BeginReadingImages(string[] filenames)
         {
 
-            ttdmBmps = new Bitmap[15];
-            if (filenames.Length > 15)
+            ttdmBmps = new Bitmap[50];
+            if (filenames.Length > 50)
             {
-                MessageBox.Show("Limit Exceeded, only 15 images will be readed for improve perfomance!.");
+                MessageBox.Show("Limit Exceeded, only 50 images will be readed for improve perfomance!.");
             }
             for (int i = 0; i < filenames.Length; i++)
             {
@@ -91,13 +102,13 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 if (File.Exists(fn))
                 {
                     Image img = Bitmap.FromFile(fn);
-                    if (img.Size.Width > 100 || img.Size.Height > 100)
+                    if (img.Size.Width > 500 || img.Size.Height > 500)
                     {
                         return;
                     }
-                    ttdmBmps[i] = new Bitmap(img); 
+                    ttdmBmps[i] = new Bitmap(img);
                     LBX_FILES.Items.Add(fn);
-                    LBL_IMAGECOUNT.Text = LBX_FILES.Items.Count.ToString() + "/15";
+                    LBL_IMAGECOUNT.Text = LBX_FILES.Items.Count.ToString() + "/50";
 
                 }
             }
@@ -105,11 +116,11 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
         private void BTN_UP_IMG_Click(object sender, EventArgs e)
         {
             var index = LBX_FILES.SelectedIndex;
-            if (LBX_FILES.Items.Count == 0|| index < LBX_FILES.Items.Count)
+            if (LBX_FILES.Items.Count == 0 || index < LBX_FILES.Items.Count)
                 return;
             if (index <= LBX_FILES.Items.Count)
                 index++;
-                PICB_RESULT.Image = ttdmBmps[index];
+            PICB_RESULT.Image = ttdmBmps[index];
             LBX_FILES.SelectedIndex = index;
         }
         private void BTN_DWN_Click(object sender, EventArgs e)
@@ -119,10 +130,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 return;
             if (LBX_FILES.Items.Count != 0)
                 index--;
-                if (index < 0 == false)
-                {
-                    PICB_RESULT.Image = ttdmBmps[index];
-                }
+            if (index < 0 == false)
+            {
+                PICB_RESULT.Image = ttdmBmps[index];
+            }
             LBX_FILES.SelectedIndex = index;
         }
         private void LBX_FILES_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,8 +149,8 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 catch { }
             }
         }
-        private Bitmap AltImageValues(Bitmap initial,int transp, int darkRest)
-        { 
+        private Bitmap AltImageValues(Bitmap initial, int transp, int darkRest)
+        {
             if (transp == 100 && darkRest == 0)
             {
                 return initial;
@@ -225,14 +236,14 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                         return;
                     }
                 }
-                if (outputBmpsFiPaths != null )
+                if (outputBmpsFiPaths != null)
                 {
                     if (outputBmpsFiPaths.Count != 0)
                     {
                         SetOutputBitmaps(_KeyOutputOrder, outputBmpsFiPaths);
                     }
                 }
-               
+
 
             }
         }
@@ -263,7 +274,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
         }
         private void RequestOutput()
         {
-            
+
             Console.WriteLine("Ejecutando prc3");
             Console.WriteLine("direccionesDeBmpsSonNulas? " + (outputBmpsDirs == null).ToString());
             Console.WriteLine("NombresDeBmpsSonNulas? " + (outputBmpsNames == null).ToString());
@@ -278,13 +289,13 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 for (int index = 0; index < outputBitmaps.Length; index++)
                 {
                     Console.WriteLine(index);
-                    string outpath = fbd.SelectedPath+@"\"+ outputBmpsDirs[index] + " - " + outputBmpsNames[index];
+                    string outpath = fbd.SelectedPath + @"\" + outputBmpsDirs[index] + " - " + outputBmpsNames[index];
                     if (outputBitmaps[index] == null)
                     {
                         Console.WriteLine("valor indexado como {0} devolvió null.");
                         return;
                     }
-                    else 
+                    else
                     {
                         outputBitmaps[index].Save(outpath);
                         Console.WriteLine($"!Saved ({index}°) image = {outpath}");
@@ -310,7 +321,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
         private void GNBTN_COPY_COLOR_RGB_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Clipboard.SetText(LBL_VALUE_RGB.Text);
-            
+
         }
         private void GNBTN_COPY_COLOR_HEX_Click(object sender, EventArgs e)
         {
@@ -337,7 +348,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
             ofd.Multiselect = false;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                
+
                 {
                     ubmp_path = ofd.FileName;
                     TBX_FileInputPath.Text = ubmp_path;
@@ -361,7 +372,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 PICBX_WIMG.Image = wbmp;
                 NUPD_X_BMP.Maximum = wbmp.Width;
                 NUPD_Y_BMP.Maximum = wbmp.Height;
-                LBL_ImageW.Text = "/ "+ wbmp.Width;
+                LBL_ImageW.Text = "/ " + wbmp.Width;
                 LBL_IMAGE_HEIGHT.Text = "/ " + wbmp.Height;
             }
         }
@@ -461,11 +472,11 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
 
         private void BTN_SaveBmpToPath_Click(object sender, EventArgs e)
         {
-            if (TBX_SaveOutputPath.Text != string.Empty|| ubmp_savepath != "")
+            if (TBX_SaveOutputPath.Text != string.Empty || ubmp_savepath != "")
             {
                 wbmp.Save(ubmp_savepath);
             }
-             
+
         }
 
         private void BTN_BmpFullView_Click(object sender, EventArgs e)
@@ -477,7 +488,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.CMIX
                 PVW.ShowDialog();
                 PVW.BringToFront();
             }
-           
+
         }
     }
 }

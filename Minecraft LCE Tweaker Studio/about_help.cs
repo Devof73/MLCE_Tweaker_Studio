@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Minecraft_LCE_Tweaker_Studio
 {
@@ -29,7 +22,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             InitializeComponent();
             theSenderInstance = senderToManage;
             var appPath = Application.StartupPath;
-            var filepath = appPath+ @"\Expoint\dannyskey.wav";
+            var filepath = appPath + @"\Expoint\dannyskey.wav";
             Console.WriteLine(filepath);
             cplo.FileName = filepath;
             bufftimer.Interval = 40;
@@ -52,7 +45,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             if (PNL_MAIN.Location.Y > -creditsEndX)
             {
                 PNL_MAIN.Location = new Point(0, sclevel);
-                pnl_titles.Location = new Point(0, sclevel-200);
+                pnl_titles.Location = new Point(0, sclevel - 200);
             }
             else if (PNL_MAIN.Location.Y >= creditsEndX)
             {
@@ -63,14 +56,14 @@ namespace Minecraft_LCE_Tweaker_Studio
                     theSenderInstance.Show();
                 }
             }
-            if(Btn_Continue.Location.Y < 0)
+            if (Btn_Continue.Location.Y < 0)
             {
                 About_help_FormClosing(Btn_Continue, new FormClosingEventArgs(CloseReason.FormOwnerClosing, false));
             }
             if (msstoping == true)
             {
-                
-             
+
+
                 cplo.Volume--;
                 if (shouldClose == true && cplo.Volume == 0)
                 {
@@ -78,14 +71,14 @@ namespace Minecraft_LCE_Tweaker_Studio
                     this.Dispose();
                     theSenderInstance.Show();
                 }
-                cplo.Volume = cplo.Volume--; 
+                cplo.Volume = cplo.Volume--;
             }
         }
 
         private void About_help_FormClosing(object sender, FormClosingEventArgs e)
         {
             msstoping = true;
-         
+
             if (cplo.PlaybackState == CSCore.SoundOut.PlaybackState.Playing)
             {
                 e.Cancel = true;
@@ -110,13 +103,13 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void PNL_MAIN_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void PNL_MAIN_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void PNL_MAIN_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -131,7 +124,7 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void PNL_MAIN_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left )
+            if (e.Button == MouseButtons.Left)
             {
                 speedmultiplier = speedmultiplier + 1;
             }
@@ -162,6 +155,6 @@ namespace Minecraft_LCE_Tweaker_Studio
         {
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCinKPxoqVHoZwpIWJ3zppdw");
         }
-                
+
     }
 }

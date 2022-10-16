@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 namespace DevNotepad
 {
     public partial class MainEditor : Form
@@ -51,8 +45,9 @@ namespace DevNotepad
             {
                 SaveFileDialog sfdl = new SaveFileDialog()
                 {
-                    SupportMultiDottedExtensions = true, 
-                    RestoreDirectory = true, Title = "Select Project Save Output."
+                    SupportMultiDottedExtensions = true,
+                    RestoreDirectory = true,
+                    Title = "Select Project Save Output."
                 };
                 if (sfdl.ShowDialog() == DialogResult.OK)
                 {
@@ -94,7 +89,7 @@ namespace DevNotepad
             }
             switch (NeedsSave)
             {
-                case true:{TSSL_FileNeedsToBeSaved.Text = "File Needs Be Saved."; TSSL_FileNeedsToBeSaved.ForeColor = Color.OrangeRed;  break;}
+                case true: { TSSL_FileNeedsToBeSaved.Text = "File Needs Be Saved."; TSSL_FileNeedsToBeSaved.ForeColor = Color.OrangeRed; break; }
                 case false: { TSSL_FileNeedsToBeSaved.Text = "File No Needs To Be Saved."; TSSL_FileNeedsToBeSaved.ForeColor = Color.Green; break; }
             }
 
@@ -103,7 +98,7 @@ namespace DevNotepad
         }
         internal void App_DetectMethodFragment()
         {
-            var last_line = RTB_main_Workspace.Lines[RTB_main_Workspace.Lines.Length-2];
+            var last_line = RTB_main_Workspace.Lines[RTB_main_Workspace.Lines.Length - 2];
             var key = "(";
             var matchString = Regex.Escape(key);
             foreach (Match match in Regex.Matches(last_line, matchString))
@@ -119,7 +114,7 @@ namespace DevNotepad
                             if (value.Contains("("))
                             {
                                 int appearingAtIndex = value.IndexOf("(");
-                                
+
                                 int var_index = RTB_main_Workspace.Text.IndexOf(value);
                                 RTB_main_Workspace.Select(var_index, value.Length);
                                 var classic_mtd_color = App_ColorCSharpCodeReferences(RTB_main_Workspace.SelectedText);
@@ -129,11 +124,11 @@ namespace DevNotepad
                         }
 
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("ERROR: " + ex.Message + "\rSource:" + ex.Source + "\rStackTrace:" + ex.StackTrace + "\rMatch Index: "+ match.Index+ "\rMatch Length: "+match.Length);
+                    Console.WriteLine("ERROR: " + ex.Message + "\rSource:" + ex.Source + "\rStackTrace:" + ex.StackTrace + "\rMatch Index: " + match.Index + "\rMatch Length: " + match.Length);
                     Console.ReadLine();
                     return;
                 }
@@ -153,7 +148,7 @@ namespace DevNotepad
             { return obj_color; }
             else if (refName == "for" || refName == "foreach" || refName == "if" || refName == "break" || refName == "continue" || refName == "goto" || refName == "in" || refName == "return" || refName == "else")
             { return condition_worker_color; }
-            else if (refName.EndsWith("()") || refName.EndsWith(")") || refName.Contains("(")) 
+            else if (refName.EndsWith("()") || refName.EndsWith(")") || refName.Contains("("))
             {
                 return function_color;
             }
@@ -169,7 +164,7 @@ namespace DevNotepad
             "switch", "bool", "false", "true", "using", "internal", "private", "public", "readonly", "static", "else", "if", "in", "switch", "return"};
             foreach (string value in common_codes)
             {
-                
+
                 if (RTB_main_Workspace.Text.Contains(value))
                 {
                     var matchString = Regex.Escape(value);
@@ -191,11 +186,11 @@ namespace DevNotepad
                         {
                             return;
                         }
-                        
+
                     };
                 }
             }
-            
+
         }
         internal void App_Open()
         {
@@ -230,7 +225,7 @@ namespace DevNotepad
             charsModifiedNow = charsModifiedNow + 1;
             //if (ticksEvent == 5 && mode == 2 && txt_EditorCodeMode == true)
             {
-               
+
             }
             if (charsModifiedNow == 10)
             {
@@ -245,7 +240,7 @@ namespace DevNotepad
                 }
                 App_CodeModeDetectValues();
 
-                
+
             }
         }
         /// <summary>
@@ -259,13 +254,13 @@ namespace DevNotepad
             sel_index = RTB_main_Workspace.SelectionStart;
             App_CheckIfSaveIsNeeded();
             ticksEvent = ticksEvent + 1;
-            
+
             if (ticksEvent == 10 && mode == 2 && txt_EditorCodeMode == true)
             {
                 App_CodeModeDetectValues();
                 App_DetectMethodFragment();
             }
-            
+
             if (ticksEvent == 20) { ticksEvent = 0; }
             RTB_main_Workspace.SelectionStart = sel_index;
         }
@@ -386,7 +381,7 @@ namespace DevNotepad
             var label2 = TSSL_RTBWS_SelLength;
             label1.Text = $"Selection Index: [{RTB_main_Workspace.SelectionStart}]";
             label2.Text = $"Selection Length: [{RTB_main_Workspace.SelectionLength}]";
-          
+
         }
 
         private void TSTMI_ColorDetWords_Click(object sender, EventArgs e)
@@ -402,7 +397,7 @@ namespace DevNotepad
                 ShowApply = false,
                 ShowHelp = false,
                 ShowEffects = false,
-            
+
             };
             if (fdl.ShowDialog() is DialogResult.OK)
             {

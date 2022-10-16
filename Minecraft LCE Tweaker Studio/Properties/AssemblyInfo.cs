@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("Minecraft LCE Tweaker Studio")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The mlce all in one modding kit")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("dsj")]
 [assembly: AssemblyProduct("Minecraft LCE Tweaker Studio")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCopyright("Copyright © dsj  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +31,5 @@ using System.Runtime.InteropServices;
 // Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
 // utilizando el carácter "*", como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.4.0")]
-[assembly: AssemblyFileVersion("4.5.0.19")]
+[assembly: AssemblyVersion("4.5.3.0")]
+[assembly: AssemblyFileVersion("4.5.3.0")]

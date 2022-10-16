@@ -1,19 +1,15 @@
 ﻿using CSAudioPlayer;
+using ftp;
+using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio
 {
     public partial class Dbgform : Form
     {
-        MainCenter senderInstance = null;
+        readonly MainCenter senderInstance = null;
         public Dbgform(MainCenter Initial)
         {
             InitializeComponent();
@@ -24,7 +20,7 @@ namespace Minecraft_LCE_Tweaker_Studio
         {
             lbx2_mctrls.Items.Clear();
             var s = senderInstance;
-            GGS_1.Checked = s.RPCCli!=null&&s.RPCCli.IsInitialized;
+            GGS_1.Checked = s.RPCCli != null && s.RPCCli.IsInitialized;
             GGS_2.Checked = s.CommonTimer.Enabled;
             var ctrls = senderInstance.Controls;
             for (int i = 0; i < ctrls.Count; i++)
@@ -33,15 +29,15 @@ namespace Minecraft_LCE_Tweaker_Studio
                 lbx2_mctrls.Items.Add(c.Name + " - " + c.ToString());
             }
         }
-       
+
         private void GGS_1_CheckedChanged(object sender, EventArgs e)
         {
-           switch(GGS_1.Checked)
+            switch (GGS_1.Checked)
             {
-                case true: 
-                    { if (senderInstance.RPCCli != null && senderInstance.RPCCli.IsInitialized == false) { senderInstance.RPCCli.Initialize();  } break; }
+                case true:
+                    { if (senderInstance.RPCCli != null && senderInstance.RPCCli.IsInitialized == false) { senderInstance.RPCCli.Initialize(); } break; }
                 case false:
-                    { senderInstance.RPCCli.ClearPresence(); senderInstance.RPCCli.Deinitialize();  break; }
+                    { senderInstance.RPCCli.ClearPresence(); senderInstance.RPCCli.Deinitialize(); break; }
             }
         }
 
@@ -58,9 +54,10 @@ namespace Minecraft_LCE_Tweaker_Studio
 
         private void lbx1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btn2.Enabled = lbx1.SelectedItem!=null;
+            btn2.Enabled = lbx1.SelectedItem != null;
         }
-        AudioPlayer ply = new AudioPlayer();
+
+        readonly AudioPlayer ply = new AudioPlayer();
         private void btn2_Click(object sender, EventArgs e)
         {
             ply.Channels = CSAudioPlayer.Channels.channels2;
@@ -89,6 +86,30 @@ namespace Minecraft_LCE_Tweaker_Studio
         {
             RefreshState();
             this.Close();
+        }
+
+        readonly File_Transfer_Protocol FTP = new File_Transfer_Protocol();
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            var dat = Encoding.ASCII.GetBytes("Work mtfka");
+            FTP.Upload("ftp://" + textBox1.Text + "/dev_hdd0/tmp/debuggertest.txt", dat);
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            FTP.DeleteFileOnFtpServer("ftp://" + textBox1.Text + "/dev_hdd0/tmp/debuggertest.txt", false, false);
+        }
+
+        private void Btn7_Click(object sender, EventArgs e)
+        {
+            AForge_CC_Frame_Viewer.AForgeCC_main aff = new AForge_CC_Frame_Viewer.AForgeCC_main();
+            aff.ShowDialog();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            HudViewer hv = new HudViewer(senderInstance.FileName);
+            hv.ShowDialog();
         }
     }
 }

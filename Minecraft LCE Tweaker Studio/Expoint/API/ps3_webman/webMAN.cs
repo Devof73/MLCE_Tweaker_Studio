@@ -7,19 +7,20 @@
     using System.Collections;
 
 */
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Net;
+using ftp;
 using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.Net;
+using System.Windows.Forms;
 
 namespace ps3_webman.Core.Ps3
 {
 
     public class Ps3Sys
     {
+        private File_Transfer_Protocol cliftp = new File_Transfer_Protocol();
         readonly private System.Windows.Forms.RichTextBox htmlrichtext = new RichTextBox();
         readonly private System.Windows.Forms.TextBox char_box = new TextBox();
         public ps3_webman.Core.Server.WebMAN_Server Server;
@@ -41,6 +42,9 @@ namespace ps3_webman.Core.Ps3
         {
             get { return Server.ServerElapsed; }
         }
+
+        internal File_Transfer_Protocol Ps3Ftp { get => cliftp; private set => cliftp = value; }
+
         public bool CanReachServer = false;
         #region Events
         internal event EventHandler ConnectedSucessfully;
@@ -94,7 +98,7 @@ namespace ps3_webman.Core.Ps3
             ConIp = ps3_ip;
             Refreshor.Interval = 16000;
             Refreshor.Tick += Refreshor_Tick;
-            
+
         }
         /// <summary>
         /// Siempre retornará FALSE si es que no se pudo conectar, el servicio ya esta desconectado o se produjo un error.
@@ -162,9 +166,9 @@ namespace ps3_webman.Core.Ps3
                             strGamePid = GetPidProcess(html);
                             ulong.TryParse(GetPidProcess(html), out ulongGamePid);
                             //LocalUserName = GetLocalUserName(html);
-                           /* var strt = GetStartupElapsedTime(html)
-                               .Replace("d", "").Replace("h", "").Replace("m", "").Replace("s", "");
-                            try { ElapsedPs3 = TimeSpan.Parse(strt.Remove(0, 1)); } catch { }*/
+                            /* var strt = GetStartupElapsedTime(html)
+                                .Replace("d", "").Replace("h", "").Replace("m", "").Replace("s", "");
+                             try { ElapsedPs3 = TimeSpan.Parse(strt.Remove(0, 1)); } catch { }*/
                             Firmware = GetFirmware(html);
                             webMAN_Version = GetWMVersion(html);
                             UserDirectory = CurrUserDirectory(html);
@@ -184,7 +188,7 @@ namespace ps3_webman.Core.Ps3
                                 Console.WriteLine(UserId);
                                 Console.WriteLine(UserIdI);
                                 Console.WriteLine(LocalUserName);
-                               // Console.WriteLine(strt);
+                                // Console.WriteLine(strt);
                                 Console.WriteLine("|--------- ----------|");
                             }
                             if (LocalUserName == string.Empty)
@@ -202,14 +206,14 @@ namespace ps3_webman.Core.Ps3
                     }
                     return true;
                 }
-                catch (Exception ex )
+                catch (Exception ex)
                 {
                     MessageBox.Show("We have disconnected this instance from the server since there was an error updating it, it could be because the console has just been turned off or disconnected from the internet.\rError message: " +
                         ex.Message, "Server error. ", buttons: MessageBoxButtons.OK);
                     Refreshor.Stop();
                     return false;
                 }
-                
+
             }
             else if (Server.IsConnected == false)
             {
@@ -352,7 +356,7 @@ namespace ps3_webman.Core.Ps3
             {
                 ReportEvent(OnXmb);
                 return false;
-            } 
+            }
 
 
         }
@@ -415,7 +419,7 @@ namespace ps3_webman.Core.Ps3
                         String text = reader.ReadToEnd();
                         htmlrichtext.Text = text;
                         text.Split('<');
-                        
+
                     }
                     web.Dispose();
 
@@ -600,7 +604,7 @@ namespace ps3_webman.Core.Ps3
                 }
             }
         }
-      
+
         public string GetPidProcess(string wm_ps3_html_cpursx)
         {
             ReportEvent(OnGettingProcessPid);
@@ -610,7 +614,7 @@ namespace ps3_webman.Core.Ps3
             {
                 if (keyIndex != -1)
                 {
-                    
+
                     return html.Substring(keyIndex + key.Length, 8);
                 }
                 else
@@ -683,7 +687,7 @@ namespace ps3_webman.Core.Ps3
             ReportEvent(OnGettingSysLife);
             if (IndexOfKey != -1)
             {
-                return html.Substring(IndexOfKey+1 + key.Length, 45);   
+                return html.Substring(IndexOfKey + 1 + key.Length, 45);
             }
             else
             {
@@ -695,14 +699,14 @@ namespace ps3_webman.Core.Ps3
             try
             {
                 string uriprefix = $"http://{Server.IpAddress}";
-                string link = uriprefix + CurrUserDirectory(wm_ps3_html)+"/friendim/avatar/me.png";
+                string link = uriprefix + CurrUserDirectory(wm_ps3_html) + "/friendim/avatar/me.png";
                 System.Net.WebRequest request =
                 System.Net.WebRequest.Create(link);
                 return new Bitmap(request.GetResponse().GetResponseStream());
             }
             catch (Exception ex)
             {
-                Console.WriteLine("INTERNAL EXCEPTION: " + ex.Message + " strace: "+ ex.StackTrace);
+                Console.WriteLine("INTERNAL EXCEPTION: " + ex.Message + " strace: " + ex.StackTrace);
 
                 return SystemIcons.Error.ToBitmap();
             }
@@ -734,7 +738,7 @@ namespace ps3_webman.Core.Ps3
                 }
                 return value;
             }
-           else
+            else
             {
                 return "1.541kb";
             }
@@ -796,7 +800,7 @@ namespace ps3_webman.Core.Ps3
         public string GetLocalUserName(string wm_ps3_html_cpursx)
         {
             WebClient wc = new WebClient();
-            
+
             var usrDir = CurrUserDirectory(wm_ps3_html_cpursx);
             {
                 if (usrDir == "XMB ERROR" || usrDir == "Error while processing strings.")
@@ -878,7 +882,7 @@ namespace ps3_webman.Core.Ps3
 
         }
         public bool crs()
-        { 
+        {
             var outBool = Server.RefreshServerData("CRS Boolean");
             CanReachServer = outBool;
             return outBool;
@@ -984,7 +988,7 @@ namespace ps3_webman.Core.Server
 
                 ServerTotalFetches++;
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Cannot Connect!");
                 IsConnected = false;
@@ -1006,7 +1010,7 @@ namespace ps3_webman.Core.Server
             {
                 try
                 {
-                   
+
                     string userUrl = $"http://{STR_SERV_IP_ADDRESS}/cpursx.ps3";
                     System.IO.Stream stream = WEB_SERV_CLI.OpenRead(userUrl);
                     using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
@@ -1027,7 +1031,7 @@ namespace ps3_webman.Core.Server
             }
 
         }
-        
+
     }
 }
 

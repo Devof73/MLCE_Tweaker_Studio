@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
 {
@@ -31,7 +24,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
             _outPath = quickOutput;
             GNTBX_OutPath.Text = _outPath;
             GTBX_descompressionFilePath.Text = _inPath;
-            
+
             if (MessageBox.Show("Decompress?:\r" + quickInput,
                                 "¿?",
                                 MessageBoxButtons.YesNo,
@@ -44,7 +37,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
                 try
                 {
                     ArcFile.ExtractArchive(_inPath, reOut);
-                    if (MessageBox.Show("Sucessfully extracted data, saved on path... " + reOut+"\nWanna change workspace to ARC path?", "Operation Ended.", MessageBoxButtons.YesNo) is DialogResult.Yes)
+                    if (MessageBox.Show("Sucessfully extracted data, saved on path... " + reOut + "\nWanna change workspace to ARC path?", "Operation Ended.", MessageBoxButtons.YesNo) is DialogResult.Yes)
                     {
                         clientMain.App_TVW_ListGAF_Dir(reOut);
                     }
@@ -55,7 +48,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
                     MessageBox.Show(ex.Message);
                 }
             }
-              
+
 
         }
         internal bool RefreshFlag()
@@ -112,7 +105,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
                 _outPath = path;
                 GNBTN_DecompressStart.Enabled = true;
             }
-           
+
         }
 
         private void GNBTN_DecompressStart_Click(object sender, EventArgs e)
@@ -143,7 +136,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ARC
         private void GNBTN_SelectDataFolder_Click(object sender, EventArgs e)
         {
             var fPath = RequestFolderSelection("Select Compression Data.", "compSelDat");
-            if (fPath != null || fPath != "\\NA" || fPath != string.Empty  && Directory.Exists(fPath))
+            if (fPath != null || fPath != "\\NA" || fPath != string.Empty && Directory.Exists(fPath))
             {
                 GNTBX_CompDataFolderTB.Text = fPath;
             }

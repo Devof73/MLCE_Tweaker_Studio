@@ -36,7 +36,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils
             return canvas;
         }
 
-        public static void ReverseColorRB(Bitmap bitmap)
+        public static Bitmap ReverseColorRB(Bitmap bitmap)
         {
             int width = bitmap.Width;
             int height = bitmap.Height;
@@ -46,9 +46,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils
             int stride = data.Stride;
             IntPtr pixelData = data.Scan0;
 
-            for(int x=0; x<width; x++)
+            for (int x = 0; x < width; x++)
             {
-                for(int y=0; y<height; y++)
+                for (int y = 0; y < height; y++)
                 {
                     IntPtr pixelOffset = pixelData + 4 * x + stride * y;
                     byte[] color = new byte[4];
@@ -65,6 +65,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils
             }
 
             bitmap.UnlockBits(data);
+            return bitmap;
         }
     }
 }

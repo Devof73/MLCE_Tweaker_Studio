@@ -1,9 +1,8 @@
-﻿using System;
+﻿using FuiEditor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using FuiEditor;
-using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
 {
@@ -13,12 +12,12 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         {
             Stack<FuiImageInfo> imageInfoStack = new Stack<FuiImageInfo>();
             int currentOffset = imageIndex - FuiImageInfo.NativeSize;
-            while(true)
+            while (true)
             {
                 FuiImageInfo imageInfo = new FuiImageInfo();
                 imageInfo.Read(filedata, currentOffset);
                 imageInfoStack.Push(imageInfo);
-                if(imageInfo.ImageOffset == 0)
+                if (imageInfo.ImageOffset == 0)
                 {
                     break;
                 }
@@ -32,7 +31,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         {
             List<byte[]> imageList = new List<byte[]>(imageInfoNeeded.Length);
             int bytesRead = 0;
-            foreach(FuiImageInfo imageInfo in imageInfoNeeded)
+            foreach (FuiImageInfo imageInfo in imageInfoNeeded)
             {
                 /*using (MemoryStream stream = new MemoryStream(filedata, imageIndex + imageInfo.ImageOffset, imageInfo.ImageSize))
                 {
@@ -45,7 +44,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
 
                 bytesRead += imageInfo.ImageSize;
             }
-            if(filedata.Length != (imageIndex + bytesRead))
+            if (filedata.Length != (imageIndex + bytesRead))
             {
                 MessageBox.Show("Oops, maybe not supported.", "Warning");
             }
@@ -63,7 +62,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         public static int ToInt32(byte[] filedata, int startIndex)
         {
             byte[] data = filedata.Skip(startIndex).Take(4).ToArray();
-            if(BitConverter.IsLittleEndian)
+            if (BitConverter.IsLittleEndian)
             {
                 return BitConverter.ToInt32(data, 0);
             }
@@ -74,7 +73,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.FJUI
         public static byte[] GetBytes(int value)
         {
             byte[] data = BitConverter.GetBytes(value);
-            if(BitConverter.IsLittleEndian)
+            if (BitConverter.IsLittleEndian)
             {
                 return data;
             }

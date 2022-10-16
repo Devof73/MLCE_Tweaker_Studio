@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ftp
@@ -33,7 +32,7 @@ namespace ftp
 
             disposed = true;
         }
-    
+
         internal byte[] FileToByteArray(string fileName)
         {
             byte[] buff = null;
@@ -133,7 +132,7 @@ namespace ftp
             {
                 return false;
             }
-           
+
         }
         internal void CreateDir(string host, string dirname, string username = "username", string password = "password")
         {
@@ -279,9 +278,9 @@ namespace ftp
                 UploadFtpDirectory(directory, directoryUrl + "/", credentials);
             }
         }
-        internal bool CheckFileExist(string url,bool UseBinary)
+        internal bool CheckFileExist(string url, bool UseBinary)
         {
-            
+
             var request = (FtpWebRequest)WebRequest.Create
             (url);
             request.Credentials = new NetworkCredential("user", "pass");
@@ -303,7 +302,7 @@ namespace ftp
                 return false;
             }
         }
-        internal bool DeleteFileOnFtpServer(string uriString, bool ssl = false,bool binary = false, string ftpUsername = "def", string ftpPassword = "default")
+        internal bool DeleteFileOnFtpServer(string uriString, bool ssl = false, bool binary = false, string ftpUsername = "def", string ftpPassword = "default")
         {
             var serverUri = new Uri(uriString);
             try
@@ -318,6 +317,8 @@ namespace ftp
                 request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
                 request.UseBinary = binary;
+                request.AuthenticationLevel = System.Net.Security.AuthenticationLevel.MutualAuthRequired;
+
                 request.EnableSsl = ssl;
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Console.WriteLine("[!¡] DEL: {0}", response.StatusDescription);

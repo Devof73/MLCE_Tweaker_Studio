@@ -44,7 +44,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             if (!string.IsNullOrEmpty(fn)) { main.App_TVW_ListGAF_Dir(fn); }
             this.Close();
         }
-    
+
         internal bool StringArrayIsEmpty(string[] array)
         {
             int emptyValues = 0;
@@ -54,7 +54,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             }
             if (emptyValues >= array.Length) { return true; }
             else { return false; }
-            
+
         }
         private string CreateNewEdition(string name, string region)
         {
@@ -81,7 +81,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                 if (Directory.Exists(targetPath) is true)
                 {
                     Directory.CreateDirectory(targetPath + "Common");
-           
+
                     if (WithCommon == true && File.Exists(res) && (new FileInfo(res)).Extension.ToLower() == ".png")
                     {
                         CopyDirectory(res, targetPath + "Common\\", true);
@@ -94,9 +94,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                     }
                     if (WithTerrain == true && File.Exists(tex2) && (new FileInfo(tex2)).Extension.ToLower() == ".png")
                     {
-                        if (File.Exists(res+"\\terrainMipMapLevel2.png") && File.Exists(res + "\\terrainMipMapLevel3.png") )
+                        if (File.Exists(res + "\\terrainMipMapLevel2.png") && File.Exists(res + "\\terrainMipMapLevel3.png"))
                         {
-                            File.Copy(res+ "\\terrainMipMapLevel2.png", res+ "\\terrainMipMapLevel2.png");
+                            File.Copy(res + "\\terrainMipMapLevel2.png", res + "\\terrainMipMapLevel2.png");
                         }
                         File.Copy(tex2, targetPath + "Common\\Terrain.png");
                     }
@@ -107,9 +107,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
 
                         for (int i = 0; i < arc_pcks.Length; i++)
                         {
-                            File.Copy(arc_pcks[i], targetPath + "DLC\\"+new FileInfo(arc_pcks[i]).Name+".pck");
+                            File.Copy(arc_pcks[i], targetPath + "DLC\\" + new FileInfo(arc_pcks[i]).Name + ".pck");
                         }
-                         
+
                     }
                     if (WithOst)
                     {
@@ -145,7 +145,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                             }
                         }
 
-                    }                    
+                    }
                     if (WithParticles)
                     {
                         var target = targetPath + "Common\\res\\TitleUpdate\\res";
@@ -162,7 +162,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                         "hasCommon = \"" + Directory.Exists(targetPath + "Common\\").ToString() + "\"|n|" +
                         "hasArc = \"" + (Directory.Exists(targetPath + "Common\\") && Directory.Exists(targetPath + "Common\\Media")).ToString() + "\"|n|" +
                         "hasMusic = \"" + (Directory.Exists(targetPath + "music\\").ToString()) + "\"|n|" +
-                        "creationDate = \""+ datestamp+"\"|n|";
+                        "creationDate = \"" + datestamp + "\"|n|";
                     File.WriteAllText(targetPath + "projectDefaultParams.ini", param.Replace("|n|", Environment.NewLine));
                 }
             }
@@ -238,7 +238,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             ofd.AddExtension = true;
             if (ofd.ShowDialog() is DialogResult.OK)
             {
-                TBX_ITEMS_TEX_FN.Text= ofd.FileName;
+                TBX_ITEMS_TEX_FN.Text = ofd.FileName;
             }
             else
             {
@@ -285,7 +285,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
         private void BTN_PCK_ADD_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter =  "Content Package | *.PCK";
+            ofd.Filter = "Content Package | *.PCK";
             ofd.Multiselect = true;
             ofd.CheckFileExists = false;
             ofd.Title = "Select pacakages...";
@@ -296,7 +296,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                 List<string> list = new List<string>();
                 list.AddRange(ofd.FileNames);
                 arc_pcks = list.ToArray();
-                
+
                 foreach (string fn in ofd.FileNames)
                 {
                     LBX_PCK.Items.Add(fn.Replace(".pck", ""));
@@ -332,7 +332,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             if (ofd.ShowDialog() is DialogResult.OK)
             {
                 TBX_BINKA_RES_FN.Text = ofd.SelectedPath;
-                
+
             }
             else
             {

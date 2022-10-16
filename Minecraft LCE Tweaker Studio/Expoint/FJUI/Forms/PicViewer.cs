@@ -1,16 +1,9 @@
-﻿using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils;
-using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using Microsoft.WindowsAPICodePack.Dialogs.Controls;
 using Minecraft_LCE_Tweaker_Studio.Expoint.FJUI.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FuiEditor.Forms
@@ -100,12 +93,12 @@ namespace FuiEditor.Forms
             }
 
             fileDialog.Dispose();
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-             ImageUtils.ReverseColorRB((Bitmap)MainImage);
+            ImageUtils.ReverseColorRB((Bitmap)MainImage);
             pictureBox1.Image = MainImage;
         }
     }

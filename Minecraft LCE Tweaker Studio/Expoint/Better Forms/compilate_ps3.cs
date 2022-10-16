@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 using System.Net;
-using ftp;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
 {
@@ -24,7 +19,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             InitializeComponent();
             timer1.Start();
             EnumerateProjects(Directory.EnumerateDirectories(Path.Combine(DataPath, "savedata\\")).Cast<string>().ToArray());
-           // CompLog.WriteLine(Path.Combine(DataPath, "savedata\\"));
+            // CompLog.WriteLine(Path.Combine(DataPath, "savedata\\"));
         }
 
 
@@ -33,7 +28,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             COBX_PROJECTS.Items.Clear();
             foreach (string str in strings)
             {
-                COBX_PROJECTS.Items.Add (str);
+                COBX_PROJECTS.Items.Add(str);
                 CompLog.WriteLine(str);
             }
         }
@@ -59,7 +54,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                     CompLog.WriteLine(reachable.ToString());
                     wc.Dispose();
                     pgb_progress.Update();
-                    slevel=slevel + 10;
+                    slevel = slevel + 10;
                 }
                 catch
                 {
@@ -118,7 +113,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                     bool gameExist = FTP.DirectoryExists(dirGame); CompLog.WriteLine("[!] boolean returned " + gameExist);
                     if (gameExist is true)
                     {
-                        
+
 
                         CompLog.WriteLine("[...] Backing up original data to local directory");
                         CompLog.WriteLine("----> " + backupPath);
@@ -240,7 +235,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                         }
                         pgb_progress.Value = 100;
                         CompLog.WriteLine("[!] Transferency to PS3 successfully completed.");
-                        CompLog.WriteLine("[!] Original data saved in "+ backupPath);
+                        CompLog.WriteLine("[!] Original data saved in " + backupPath);
                         CompLog.WriteLine("[!] Satisfactory level reached value +" + slevel);
                         MessageBox.Show("!Operation Success With Level +" + slevel + ".\r");
                         pgb_progress.Value = 0;
@@ -262,15 +257,15 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
         private void IfFtpExistDownloadBackupAndDelete
         (string LocalbackupDownloadPath,
          string OnlineExistencyQueryFileName,
-         string replacementSourceFileName, 
+         string replacementSourceFileName,
          bool QueryIsBinaryFile)
         {
             OnlineExistencyQueryFileName = OnlineExistencyQueryFileName.Replace("\\", "/");
             #region Initial Log
             CompLog.WriteLine("[!] Running advanced replacement.");
-            CompLog.WriteLine("[!] ----> "+LocalbackupDownloadPath);
-            CompLog.WriteLine("[!] ----> "+OnlineExistencyQueryFileName);
-            CompLog.WriteLine("[!] ----> "+replacementSourceFileName);
+            CompLog.WriteLine("[!] ----> " + LocalbackupDownloadPath);
+            CompLog.WriteLine("[!] ----> " + OnlineExistencyQueryFileName);
+            CompLog.WriteLine("[!] ----> " + replacementSourceFileName);
             #endregion
 
             ftp.File_Transfer_Protocol FTP = new ftp.File_Transfer_Protocol();
@@ -281,9 +276,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
             if (exists)
             {
                 CompLog.WriteLine("[!] Replacing original file. Backingup...");
-                var onlineFileName = OnlineExistencyQueryFileName.Split('\\').Last().Replace("\\","/");
+                var onlineFileName = OnlineExistencyQueryFileName.Split('\\').Last().Replace("\\", "/");
                 CompLog.WriteLine("[!] Online File Name returned " + onlineFileName);
-                FTP.DownloadFile(onlineFileName,LocalbackupDownloadPath + "/" + onlineFileName);
+                FTP.DownloadFile(onlineFileName, LocalbackupDownloadPath + "/" + onlineFileName);
                 FTP.DeleteFileOnFtpServer(onlineFileName);
                 FTP.Upload(OnlineExistencyQueryFileName, replacementSourceFileName);
 
@@ -305,9 +300,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
 
         private void COBX_PROJECTS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Directory.Exists(COBX_PROJECTS.Items[COBX_PROJECTS.SelectedIndex] as string) )
+            if (Directory.Exists(COBX_PROJECTS.Items[COBX_PROJECTS.SelectedIndex] as string))
             {
-                btn1.Text = "COMPILE ("+(GetDirectorySize((COBX_PROJECTS.Items[COBX_PROJECTS.SelectedIndex] as string)) / 1024).ToString("N0", System.Globalization.CultureInfo.InvariantCulture) + "MBs )";
+                btn1.Text = "COMPILE (" + (GetDirectorySize((COBX_PROJECTS.Items[COBX_PROJECTS.SelectedIndex] as string)) / 1024).ToString("N0", System.Globalization.CultureInfo.InvariantCulture) + "MBs )";
             }
         }
         private static long GetDirectorySize(string folderPath)
@@ -328,9 +323,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
                 RTBX_LOG.Text = CompLog.Output;
                 RTBX_LOG.SelectionLength = 0;
                 RTBX_LOG.SelectionStart = RTBX_LOG.Text.Length;
-                
+
             }
-                
+
         }
 
         private void btn3_copy_Click(object sender, EventArgs e)
@@ -364,8 +359,8 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
     }
     internal class CompilationLog
     {
-        private static string output = ""; 
-        
+        private static string output = "";
+
         internal CompilationLog()
         {
         }
@@ -374,7 +369,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
         public void WriteLine(object msg)
         {
             Console.WriteLine(msg);
-            output += "\r" + msg.ToString() ;
+            output += "\r" + msg.ToString();
         }
     }
 }

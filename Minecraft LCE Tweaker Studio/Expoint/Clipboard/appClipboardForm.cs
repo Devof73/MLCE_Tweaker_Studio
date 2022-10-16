@@ -1,14 +1,9 @@
 ﻿
 using System;
-using System.Windows.Forms;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.Clipboard
 {
@@ -19,7 +14,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Clipboard
         public AppClipboardForm()
         {
             InitializeComponent();
-        } 
+        }
         /// <summary>
         /// Initialize, adding new items to clipboard collection.
         /// </summary>
@@ -33,7 +28,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Clipboard
         }
         public void RefreshValues()
         {
-          
+
             _ConfigSaved = Expoint.InAppUserSettings.Default.ClipboardTextCollection;
             if (_ConfigSaved?.Count != 0)
             {
@@ -57,9 +52,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Clipboard
                 _userClipboardValues = lbx1_savedClipboard.Items.Cast<string>().ToArray();
 
             }
-           
+
         }
-        public void SaveValues (bool saving)
+        public void SaveValues(bool saving)
         {
             _ConfigSaved = new StringCollection();
             string[] unArrayNormalitoDeStrings = lbx1_savedClipboard.Items.Cast<string>().ToArray();
@@ -109,7 +104,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.Clipboard
         private void _btn3__Click(object sender, EventArgs e)
         {
             _ConfigSaved = new StringCollection();
-            _userClipboardValues = new string[] {};
+            _userClipboardValues = new string[] { };
             lbx1_savedClipboard.Items.Clear();
             InAppUserSettings.Default.ClipboardTextCollection = new StringCollection() { ";" };
         }

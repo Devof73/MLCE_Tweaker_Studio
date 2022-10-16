@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
 {
-    
+
     public partial class AudioBinkInputOutputForm : Form
     {
         internal static Audio.Bink bink = new Audio.Bink();
@@ -25,7 +18,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
         /// <param name="fastfile">The complete path of the target file what you want to comp/decomp.</param>
         internal AudioBinkInputOutputForm(string fastfile)
         {
-             // Operation Index, 0 : return, 1 : binknow, 2 : binktowav
+            // Operation Index, 0 : return, 1 : binknow, 2 : binktowav
             InstaWorkFf(fastfile);
         }
         internal void InstaWorkFf(string targetfilename)
@@ -50,7 +43,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
             if (format != ".wav" && format != ".binka")
             {
                 return;
-              
+
             }
             else
             {
@@ -62,16 +55,16 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                         var outPath = Path.GetDirectoryName(targetfilename);
                         bink.Binka(targetfilename, outPath, false, null);
                         MessageBox.Show("Successfully converted: \r" + FnIn + "\rSaved in path: " + outPath + (new FileInfo(targetfilename).Name));
-                   
+
                     }
                     catch (Exception err)
                     {
                         MessageBox.Show("Error: " + err.GetType().ToString() + " - " + err.Message);
                     }
                 }
-               
+
             }
-          
+
         }
         private void btn1_iselection_Click(object sender, EventArgs e)
         {
@@ -81,18 +74,18 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                 AddExtension = true,
                 Title = "Select .WAV",
             };
-            if (ofd.ShowDialog()  is DialogResult.OK)
+            if (ofd.ShowDialog() is DialogResult.OK)
             {
                 var fn = ofd.FileName;
                 tbx_input.Text = fn;
-                FnIn = fn ;
+                FnIn = fn;
                 btn4_playaudio.Enabled = true;
             }
             var fext = Path.GetExtension(ofd.FileName).ToLower();
             SelFileIsWav = fext is ".wav";
             btn3_binkwav.Enabled = !SelFileIsWav;
             btn3_binknow.Enabled = SelFileIsWav;
-            lbl2_trackname.Text = "TrackName: "+(new FileInfo(FnIn)).Name;
+            lbl2_trackname.Text = "TrackName: " + (new FileInfo(FnIn)).Name;
 
         }
         internal bool SelFileIsWav = false;
@@ -115,10 +108,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                 {
                     var outPath = Path.GetDirectoryName(FnIn);
                     bink.Binka(FnIn, outPath, false, null);
-                    MessageBox.Show("Successfully converted: \r" + FnIn + "\rSaved in path: " + outPath +(new FileInfo(FnIn).Name));
+                    MessageBox.Show("Successfully converted: \r" + FnIn + "\rSaved in path: " + outPath + (new FileInfo(FnIn).Name));
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 Console.WriteLine("[EX] {0}\r{1}\r{2}\r{3}", err.GetType().ToString(), err.Message, err.Source, err.HResult);
             }
@@ -161,7 +154,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                         Volume = 100,
                     };
                     audioOut.Play();
-                    LBL3_Duration.Text = "Duration: "+audioOut.Length.ToString();
+                    LBL3_Duration.Text = "Duration: " + audioOut.Length.ToString();
                 }
             }
             // SI FNIN EXISTE Y INPUT ES IGUAL A FNIN EJECUTAR 
@@ -175,10 +168,10 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                 if (ext == ".binka" == true)
                 {
                     Console.WriteLine("Ex is binka. Processing...");
-                        // CONSIGUE EL ARCHIVO CONVERTIDO Y LO HACE SONAR...
+                    // CONSIGUE EL ARCHIVO CONVERTIDO Y LO HACE SONAR...
                     try
                     {
-                        var outPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\mlce_temp";
+                        var outPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\mlce_temp";
                         try { Directory.Delete(outPath, true); } catch { }
                         Console.WriteLine("-.- Please wait...");
                         if (Directory.Exists(outPath) == false) { Directory.CreateDirectory(outPath); };
@@ -217,7 +210,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.BINKA
                 audioOut.Stop();
                 audioOut = null;
                 button1.Enabled = false;
-             
+
             }
         }
     }

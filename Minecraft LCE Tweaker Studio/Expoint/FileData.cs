@@ -1,7 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Windows;
+using System.IO;
 
 namespace ARC_Studio.Workers
 {

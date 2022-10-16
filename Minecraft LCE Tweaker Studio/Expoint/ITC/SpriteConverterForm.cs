@@ -1,19 +1,14 @@
-﻿using System;
+﻿using Expoint.ITC;
+using Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Minecraft_LCE_Tweaker_Studio;
-using System.IO;
-using System.Threading;
-using Expoint.ITC;
 using System.Drawing.Imaging;
-using Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms;
-using System.Security.Policy;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
 {
@@ -37,7 +32,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         internal static FolderBrowserDialog APP_FBD_Request;
         // Builder user textures folder path variable
         internal static string textureFolderPath = "";
-        private readonly string javaMcVersions = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Roaming\\.minecraft\\versions\\"; 
+        private readonly string javaMcVersions = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Roaming\\.minecraft\\versions\\";
         // Builder Result Out Path Variable
         internal string fileOutPath = "";
         // User Selected File Names
@@ -46,7 +41,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         //internal static Bitmap ltstCookedBmp;
         internal static bool includeAnimFrames = false;
         internal static bool sortFramesToLCE = true;
-        internal readonly int[] SheetDimensions = { 16, 32,64};
+        internal readonly int[] SheetDimensions = { 16, 32, 64 };
         internal int PngSheetDimension = 16;
 
         #region BigRegionNamesArray
@@ -144,7 +139,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             short okFiles = 0;
             var user113path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Roaming\\.minecraft\\versions\\1.13.2";
             var has113 = Directory.Exists(user113path);
-            var textures113path = user113path + "\\assets\\textures\\items"; 
+            var textures113path = user113path + "\\assets\\textures\\items";
             for (int i = 0; i < list.Length; i++)
             {
                 var fn = path + "\\" + list[i] + ".png";
@@ -152,12 +147,12 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                 var obj = list[i].ToString();
                 if (r)
                 {
-                    MLogger.WriteLine("[SUCCESS] "+fn);
+                    MLogger.WriteLine("[SUCCESS] " + fn);
                     okFiles++;
                 }
                 else if (r == false && list.Contains(obj))
                 {
-                    
+
                 }
                 else
                 {
@@ -165,9 +160,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     {
 
                     }
-                  
 
-                 
+
+
                     MLogger.WriteLine("[*] xx - " + fn);
                 }
 
@@ -199,20 +194,20 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     CheckFoldContainsAll(textureFolderPath);
                     foreach (string file in lbox.Items)
                     {
-                        
+
                         var Key = textureFolderPath + @"\" + file + ".png";
                         if (FileList.Contains(Key))
                         {
                             LB_Files.Items.Add(Key);
                             i_file_count++;
-                           
+
                         }
                         else if (FileList.Contains(Key) == false && file.Contains("clock_") == false && file.Contains("compass_") == false
                         )
                         {
-                            MLogger.WriteLine("[*!*] FLIST not contains following file : "+ Key);
-                          
-                           
+                            MLogger.WriteLine("[*!*] FLIST not contains following file : " + Key);
+
+
                         }
                     }
                     {
@@ -261,7 +256,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                         // CARCASA DE HUEVO SPAWN = RELLENO DE LA CAMA
                         listBox.Items.Insert(indexOfName1 + 4, missedFilenames[2] + ".png");
                         MLogger.WriteLine("[!] Inserting matched value: " + missedFilenames[2] + " to index: " + indexOfName1);
-                       
+
                     }
 
                 }
@@ -306,7 +301,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                     MessageBox.Show($"WARNING: {textureFolderPath} Not contains the " +
                         $"following filenames: " + rslt, "Warning.", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
                 }
-                
+
             }
             else if (terrain is true)
             {
@@ -448,7 +443,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             if (APP_FBD_Request.ShowDialog() == DialogResult.OK)
             {
                 fileOutPath = APP_FBD_Request.SelectedPath;
-                Tbx_OutFolder.Text = fileOutPath + @"\items_concaten(" + (char)i_fuicount+ ").png";
+                Tbx_OutFolder.Text = fileOutPath + @"\items_concaten(" + (char)i_fuicount + ").png";
             }
         }
 
@@ -466,15 +461,15 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
 
         private void Tbx_OutFolder_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
         #region Terrain
         internal string t_selectedTerrainFolderPath = "";
         internal string t_selectedOutPath = "";
-        
+
         const int t_TerrainCountDiscriminator = 566;
         LceTerrain LTerrain = new LceTerrain();
-        
+
         private void btn_tbtf_fsd_Click(object sender, EventArgs e)
         {
             APP_FBD_Request = new FolderBrowserDialog()
@@ -497,12 +492,12 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             int filesEndedInPng = 0;
             for (int i = 0; i < fns.Length; i++)
             {
-               if ( fns[i].EndsWith(".png") ) { filesEndedInPng++; }
-               if (filesEndedInPng == t_TerrainCountDiscriminator)
-               {
+                if (fns[i].EndsWith(".png")) { filesEndedInPng++; }
+                if (filesEndedInPng == t_TerrainCountDiscriminator)
+                {
                     flagIsTerrainPath = true;
                     break;
-               }
+                }
 
             }
             if (flagIsTerrainPath is true)
@@ -513,14 +508,14 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
                 lbx_TerrainNeededFiles.Items.AddRange(order);
                 for (int i = 0; i < order.Length; i++)
                 {
-                    lbx_totalTerrainFiles.Items.Add(path+"\\"+order[i]);
+                    lbx_totalTerrainFiles.Items.Add(path + "\\" + order[i]);
                 }
-                
+
             }
         }
         private void btn_odf_sfd_Click(object sender, EventArgs e)
         {
-      
+
             FolderBrowserDialog APP_FBD_Request = new FolderBrowserDialog()
             {
                 Description = "Select a folder of to save the result file in there.",
@@ -580,9 +575,9 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             {
                 RCHTBX_LOG.Text = MLogger.Output;
                 RCHTBX_LOG.SelectionStart = RCHTBX_LOG.Text.Length - 1;
-                RCHTBX_LOG.SelectionLength = RCHTBX_LOG.Text.Length +1;
+                RCHTBX_LOG.SelectionLength = RCHTBX_LOG.Text.Length + 1;
             }
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)

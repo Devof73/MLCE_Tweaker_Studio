@@ -1,7 +1,5 @@
-﻿using System;
-
-internal class Class50
+﻿internal class Class50
 {
 
-	private static bool bool_0;
+    private static bool bool_0;
 }

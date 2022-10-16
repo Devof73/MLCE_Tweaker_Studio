@@ -1,10 +1,10 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Minecraft_LCE_Tweaker_Studio.Expoint;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Net;
-using Minecraft_LCE_Tweaker_Studio.Expoint;
+using System.Windows.Forms;
 
 namespace COL_Editor
 {
@@ -12,10 +12,10 @@ namespace COL_Editor
     {
         #region variables
 
-            Classes.COL.COLFile cf = new Classes.COL.COLFile();
-            string Version = "1.1";
-            string BaseURL = "https://pckstudio.xyz/Studio/COL/api/";
-            string BackURL = "https://phoenixarc.github.io/pckstudio.tk/studio/COL/api/";
+        Classes.COL.COLFile cf = new Classes.COL.COLFile();
+        string Version = "1.1";
+        string BaseURL = "https://pckstudio.xyz/Studio/COL/api/";
+        string BackURL = "https://phoenixarc.github.io/pckstudio.tk/studio/COL/api/";
 
         #endregion
 

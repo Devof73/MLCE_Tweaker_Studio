@@ -15,7 +15,7 @@ namespace Expoint.ITC
             dcrpt_ = dcrpt;
             AtIndex = ocurredAtIndex;
             path = targetpath;
-            
+
         }
         public string TargetPath
         {
@@ -24,7 +24,7 @@ namespace Expoint.ITC
         override public string Message
         {
             get { return errMsg_; }
-        } 
+        }
         internal string Description
         {
             get { return dcrpt_; }

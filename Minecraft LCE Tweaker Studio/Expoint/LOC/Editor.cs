@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tweaker.Workers;
 
@@ -319,7 +316,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.LOC
             SFD.Filter = "Text File | *.txt";
             SFD.DefaultExt = ".txt";
             SFD.AddExtension = true;
-            if ( SFD.ShowDialog() is DialogResult.OK)
+            if (SFD.ShowDialog() is DialogResult.OK)
             {
                 string file = SFD.FileName;
                 System.IO.File.AppendAllText(file, lines);

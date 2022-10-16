@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.SplashEditor
@@ -17,7 +10,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.SplashEditor
         public SplashEdit(string filename)
         {
             InitializeComponent();
-            
+
             dbgrtb.Visible = false;
             dbgrtb.Text = File.ReadAllText(filename);
             Read(dbgrtb, LBX_SplashValues);
@@ -75,7 +68,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.SplashEditor
 
             }
         }
-        
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
@@ -117,13 +110,13 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.SplashEditor
 
         private void LBX_SplashValues_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gtb_value_entry.Text = LBX_SplashValues.Items[LBX_SplashValues.SelectedIndex].ToString() ;
-            
+            gtb_value_entry.Text = LBX_SplashValues.Items[LBX_SplashValues.SelectedIndex].ToString();
+
         }
 
         private void SplashEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
-            InAppUserSettings.Default.S_Ins_SPT = InAppUserSettings.Default.S_Ins_SPT -1;
+            InAppUserSettings.Default.S_Ins_SPT = InAppUserSettings.Default.S_Ins_SPT - 1;
         }
     }
 }

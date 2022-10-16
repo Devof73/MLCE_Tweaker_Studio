@@ -1,5 +1,4 @@
-﻿
-namespace Minecraft_LCE_Tweaker_Studio
+﻿namespace Minecraft_LCE_Tweaker_Studio
 {
     partial class MainCenter
     {
@@ -96,6 +95,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.dbg_btn = new Guna.UI2.WinForms.Guna2Button();
             this.Btn3_ExitAll = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
+            this._IcosExplorer = new System.Windows.Forms.ImageList(this.components);
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PANEL_INSTANCE_INFO.SuspendLayout();
@@ -108,7 +108,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.LB_Title_Headert.BackColor = System.Drawing.Color.Transparent;
             this.LB_Title_Headert.Font = new System.Drawing.Font("Mojang Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_Title_Headert.ForeColor = System.Drawing.Color.White;
-            this.LB_Title_Headert.Location = new System.Drawing.Point(12, 19);
+            this.LB_Title_Headert.Location = new System.Drawing.Point(19, 31);
             this.LB_Title_Headert.Name = "LB_Title_Headert";
             this.LB_Title_Headert.Size = new System.Drawing.Size(332, 23);
             this.LB_Title_Headert.TabIndex = 1;
@@ -116,7 +116,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             // guna2GroupBox1
             // 
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.DimGray;
             this.guna2GroupBox1.Controls.Add(this.BTN_PCK_TOOL);
             this.guna2GroupBox1.Controls.Add(this.guna2Button1);
             this.guna2GroupBox1.Controls.Add(this.BTN_BINK_TOOL);
@@ -133,10 +133,10 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.guna2GroupBox1.Controls.Add(this.BTN_LOC_TOOL);
             this.guna2GroupBox1.Controls.Add(this.BTN_FUI_TOOL);
             this.guna2GroupBox1.Controls.Add(this.BTN_ARC_TOOL);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.Silver;
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.Location = new System.Drawing.Point(11, 94);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
@@ -154,9 +154,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_PCK_TOOL.CheckedState.Parent = this.BTN_PCK_TOOL;
             this.BTN_PCK_TOOL.CustomImages.Parent = this.BTN_PCK_TOOL;
             this.BTN_PCK_TOOL.Enabled = false;
-            this.BTN_PCK_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_PCK_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_PCK_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_PCK_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_PCK_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_PCK_TOOL.HoverState.Parent = this.BTN_PCK_TOOL;
             this.BTN_PCK_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.archive_cog;
             this.BTN_PCK_TOOL.ImageOffset = new System.Drawing.Point(6, -11);
@@ -180,9 +180,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.CheckedState.Parent = this.guna2Button1;
             this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.ForeColor = System.Drawing.Color.Silver;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.receipt_text_remove;
             this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
@@ -203,11 +203,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_BINK_TOOL.BorderThickness = 1;
             this.BTN_BINK_TOOL.CheckedState.Parent = this.BTN_BINK_TOOL;
             this.BTN_BINK_TOOL.CustomImages.Parent = this.BTN_BINK_TOOL;
-            this.BTN_BINK_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_BINK_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_BINK_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_BINK_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_BINK_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_BINK_TOOL.HoverState.Parent = this.BTN_BINK_TOOL;
-            this.BTN_BINK_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.file_music;
+            this.BTN_BINK_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_musical_notes_96;
             this.BTN_BINK_TOOL.ImageOffset = new System.Drawing.Point(11, -11);
             this.BTN_BINK_TOOL.ImageSize = new System.Drawing.Size(50, 50);
             this.BTN_BINK_TOOL.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -225,7 +225,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel3.Font = new System.Drawing.Font("Mojang", 9F);
-            this.siticoneLabel3.ForeColor = System.Drawing.Color.Gray;
+            this.siticoneLabel3.ForeColor = System.Drawing.Color.White;
             this.siticoneLabel3.Location = new System.Drawing.Point(102, 13);
             this.siticoneLabel3.Name = "siticoneLabel3";
             this.siticoneLabel3.Size = new System.Drawing.Size(204, 15);
@@ -240,11 +240,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_CBR_TOOL.BorderThickness = 1;
             this.BTN_CBR_TOOL.CheckedState.Parent = this.BTN_CBR_TOOL;
             this.BTN_CBR_TOOL.CustomImages.Parent = this.BTN_CBR_TOOL;
-            this.BTN_CBR_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BTN_CBR_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_CBR_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_CBR_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_CBR_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_CBR_TOOL.HoverState.Parent = this.BTN_CBR_TOOL;
-            this.BTN_CBR_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.clipboard_text;
+            this.BTN_CBR_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_clipboard_96;
             this.BTN_CBR_TOOL.ImageOffset = new System.Drawing.Point(22, -10);
             this.BTN_CBR_TOOL.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_CBR_TOOL.Location = new System.Drawing.Point(550, 175);
@@ -266,9 +266,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.guna2Button9.CheckedState.Parent = this.guna2Button9;
             this.guna2Button9.CustomImages.Parent = this.guna2Button9;
             this.guna2Button9.Enabled = false;
-            this.guna2Button9.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button9.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button9.ForeColor = System.Drawing.Color.Silver;
             this.guna2Button9.HoverState.Parent = this.guna2Button9;
             this.guna2Button9.ImageOffset = new System.Drawing.Point(22, -10);
             this.guna2Button9.ImageSize = new System.Drawing.Size(40, 40);
@@ -289,9 +289,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.guna2Button3.CheckedState.Parent = this.guna2Button3;
             this.guna2Button3.CustomImages.Parent = this.guna2Button3;
             this.guna2Button3.Enabled = false;
-            this.guna2Button3.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button3.ForeColor = System.Drawing.Color.Silver;
             this.guna2Button3.HoverState.Parent = this.guna2Button3;
             this.guna2Button3.ImageOffset = new System.Drawing.Point(22, -10);
             this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
@@ -311,11 +311,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_COL_TOOL.BorderThickness = 1;
             this.BTN_COL_TOOL.CheckedState.Parent = this.BTN_COL_TOOL;
             this.BTN_COL_TOOL.CustomImages.Parent = this.BTN_COL_TOOL;
-            this.BTN_COL_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_COL_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_COL_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_COL_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_COL_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_COL_TOOL.HoverState.Parent = this.BTN_COL_TOOL;
-            this.BTN_COL_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.palette;
+            this.BTN_COL_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_invert_colors_96;
             this.BTN_COL_TOOL.ImageOffset = new System.Drawing.Point(16, -10);
             this.BTN_COL_TOOL.ImageSize = new System.Drawing.Size(50, 50);
             this.BTN_COL_TOOL.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -337,11 +337,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_CMIX_TOOL.BorderThickness = 1;
             this.BTN_CMIX_TOOL.CheckedState.Parent = this.BTN_CMIX_TOOL;
             this.BTN_CMIX_TOOL.CustomImages.Parent = this.BTN_CMIX_TOOL;
-            this.BTN_CMIX_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BTN_CMIX_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_CMIX_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_CMIX_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_CMIX_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_CMIX_TOOL.HoverState.Parent = this.BTN_CMIX_TOOL;
-            this.BTN_CMIX_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.eyedropper_variant;
+            this.BTN_CMIX_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_fill_color_96;
             this.BTN_CMIX_TOOL.ImageOffset = new System.Drawing.Point(20, -8);
             this.BTN_CMIX_TOOL.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_CMIX_TOOL.Location = new System.Drawing.Point(551, 58);
@@ -363,11 +363,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_TOOL_SPLASH.CheckedState.Parent = this.BTN_TOOL_SPLASH;
             this.BTN_TOOL_SPLASH.CustomImages.Parent = this.BTN_TOOL_SPLASH;
             this.BTN_TOOL_SPLASH.Enabled = false;
-            this.BTN_TOOL_SPLASH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BTN_TOOL_SPLASH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_TOOL_SPLASH.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_TOOL_SPLASH.ForeColor = System.Drawing.Color.Black;
+            this.BTN_TOOL_SPLASH.ForeColor = System.Drawing.Color.Silver;
             this.BTN_TOOL_SPLASH.HoverState.Parent = this.BTN_TOOL_SPLASH;
-            this.BTN_TOOL_SPLASH.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.note_text_outline;
+            this.BTN_TOOL_SPLASH.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_multiline_text_96;
             this.BTN_TOOL_SPLASH.ImageOffset = new System.Drawing.Point(22, -10);
             this.BTN_TOOL_SPLASH.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_TOOL_SPLASH.Location = new System.Drawing.Point(225, 58);
@@ -388,9 +388,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.guna2Button6.BorderThickness = 1;
             this.guna2Button6.CheckedState.Parent = this.guna2Button6;
             this.guna2Button6.CustomImages.Parent = this.guna2Button6;
-            this.guna2Button6.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button6.ForeColor = System.Drawing.Color.Silver;
             this.guna2Button6.HoverState.Parent = this.guna2Button6;
             this.guna2Button6.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.file_plus;
             this.guna2Button6.ImageSize = new System.Drawing.Size(28, 28);
@@ -423,11 +423,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_SPRITE_TOOL.BorderThickness = 1;
             this.BTN_SPRITE_TOOL.CheckedState.Parent = this.BTN_SPRITE_TOOL;
             this.BTN_SPRITE_TOOL.CustomImages.Parent = this.BTN_SPRITE_TOOL;
-            this.BTN_SPRITE_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_SPRITE_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_SPRITE_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_SPRITE_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_SPRITE_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_SPRITE_TOOL.HoverState.Parent = this.BTN_SPRITE_TOOL;
-            this.BTN_SPRITE_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.layers_plus;
+            this.BTN_SPRITE_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_layers_96;
             this.BTN_SPRITE_TOOL.ImageOffset = new System.Drawing.Point(17, -6);
             this.BTN_SPRITE_TOOL.ImageSize = new System.Drawing.Size(50, 50);
             this.BTN_SPRITE_TOOL.Location = new System.Drawing.Point(333, 58);
@@ -450,11 +450,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_LOC_TOOL.CheckedState.Parent = this.BTN_LOC_TOOL;
             this.BTN_LOC_TOOL.CustomImages.Parent = this.BTN_LOC_TOOL;
             this.BTN_LOC_TOOL.Enabled = false;
-            this.BTN_LOC_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_LOC_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_LOC_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_LOC_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_LOC_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_LOC_TOOL.HoverState.Parent = this.BTN_LOC_TOOL;
-            this.BTN_LOC_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.book_open;
+            this.BTN_LOC_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_translation_96;
             this.BTN_LOC_TOOL.ImageOffset = new System.Drawing.Point(22, -10);
             this.BTN_LOC_TOOL.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_LOC_TOOL.Location = new System.Drawing.Point(116, 58);
@@ -476,11 +476,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_FUI_TOOL.CheckedState.Parent = this.BTN_FUI_TOOL;
             this.BTN_FUI_TOOL.CustomImages.Parent = this.BTN_FUI_TOOL;
             this.BTN_FUI_TOOL.Enabled = false;
-            this.BTN_FUI_TOOL.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_FUI_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_FUI_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_FUI_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_FUI_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_FUI_TOOL.HoverState.Parent = this.BTN_FUI_TOOL;
-            this.BTN_FUI_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.card_multiple;
+            this.BTN_FUI_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_frames_96;
             this.BTN_FUI_TOOL.ImageOffset = new System.Drawing.Point(22, -10);
             this.BTN_FUI_TOOL.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_FUI_TOOL.Location = new System.Drawing.Point(8, 58);
@@ -501,11 +501,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_ARC_TOOL.BorderThickness = 1;
             this.BTN_ARC_TOOL.CheckedState.Parent = this.BTN_ARC_TOOL;
             this.BTN_ARC_TOOL.CustomImages.Parent = this.BTN_ARC_TOOL;
-            this.BTN_ARC_TOOL.FillColor = System.Drawing.Color.LightGray;
+            this.BTN_ARC_TOOL.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.BTN_ARC_TOOL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTN_ARC_TOOL.ForeColor = System.Drawing.Color.Black;
+            this.BTN_ARC_TOOL.ForeColor = System.Drawing.Color.Silver;
             this.BTN_ARC_TOOL.HoverState.Parent = this.BTN_ARC_TOOL;
-            this.BTN_ARC_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.application_cog_outline;
+            this.BTN_ARC_TOOL.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_cardboard_box_96;
             this.BTN_ARC_TOOL.ImageOffset = new System.Drawing.Point(6, -5);
             this.BTN_ARC_TOOL.ImageSize = new System.Drawing.Size(40, 40);
             this.BTN_ARC_TOOL.Location = new System.Drawing.Point(442, 58);
@@ -522,8 +522,9 @@ namespace Minecraft_LCE_Tweaker_Studio
             // lb_Filedir
             // 
             this.lb_Filedir.AutoSize = true;
-            this.lb_Filedir.BackColor = System.Drawing.Color.Silver;
+            this.lb_Filedir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.lb_Filedir.Font = new System.Drawing.Font("Cascadia Mono", 9F);
+            this.lb_Filedir.ForeColor = System.Drawing.Color.Silver;
             this.lb_Filedir.Location = new System.Drawing.Point(5, 27);
             this.lb_Filedir.Name = "lb_Filedir";
             this.lb_Filedir.Size = new System.Drawing.Size(133, 16);
@@ -543,7 +544,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             // PANEL_INSTANCE_INFO
             // 
-            this.PANEL_INSTANCE_INFO.BackColor = System.Drawing.Color.Silver;
+            this.PANEL_INSTANCE_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.PANEL_INSTANCE_INFO.Controls.Add(this.gunaLabel7);
             this.PANEL_INSTANCE_INFO.Controls.Add(this.LB_GAF);
             this.PANEL_INSTANCE_INFO.Controls.Add(this.gunaLabel3);
@@ -563,7 +564,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.PANEL_INSTANCE_INFO.Controls.Add(this.gunaLabel2);
             this.PANEL_INSTANCE_INFO.Controls.Add(this.LB_APP_Instances);
             this.PANEL_INSTANCE_INFO.Font = new System.Drawing.Font("Cascadia Mono", 8.25F);
-            this.PANEL_INSTANCE_INFO.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PANEL_INSTANCE_INFO.ForeColor = System.Drawing.Color.Silver;
             this.PANEL_INSTANCE_INFO.Location = new System.Drawing.Point(12, 391);
             this.PANEL_INSTANCE_INFO.Name = "PANEL_INSTANCE_INFO";
             this.PANEL_INSTANCE_INFO.ShadowDecoration.Parent = this.PANEL_INSTANCE_INFO;
@@ -725,7 +726,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.LB_APP_Instances.AutoSize = true;
             this.LB_APP_Instances.Font = new System.Drawing.Font("Cascadia Mono", 9F);
-            this.LB_APP_Instances.ForeColor = System.Drawing.Color.Black;
+            this.LB_APP_Instances.ForeColor = System.Drawing.Color.Silver;
             this.LB_APP_Instances.Location = new System.Drawing.Point(5, 49);
             this.LB_APP_Instances.Name = "LB_APP_Instances";
             this.LB_APP_Instances.Size = new System.Drawing.Size(63, 80);
@@ -734,9 +735,13 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             // TEVW_FAV_GAMEDATA_FOLDER
             // 
+            this.TEVW_FAV_GAMEDATA_FOLDER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.TEVW_FAV_GAMEDATA_FOLDER.ContextMenuStrip = this.CTXTMSTP_wkcontextMenu;
+            this.TEVW_FAV_GAMEDATA_FOLDER.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.TEVW_FAV_GAMEDATA_FOLDER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TEVW_FAV_GAMEDATA_FOLDER.ImageIndex = 2;
             this.TEVW_FAV_GAMEDATA_FOLDER.ImageList = this.IMGLIST_miniexplorer_icos;
+            this.TEVW_FAV_GAMEDATA_FOLDER.ItemHeight = 26;
             this.TEVW_FAV_GAMEDATA_FOLDER.Location = new System.Drawing.Point(669, 94);
             this.TEVW_FAV_GAMEDATA_FOLDER.Name = "TEVW_FAV_GAMEDATA_FOLDER";
             this.TEVW_FAV_GAMEDATA_FOLDER.SelectedImageKey = "keyboard-tab.png";
@@ -841,8 +846,8 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.IMGLIST_miniexplorer_icos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IMGLIST_miniexplorer_icos.ImageStream")));
             this.IMGLIST_miniexplorer_icos.TransparentColor = System.Drawing.Color.Transparent;
             this.IMGLIST_miniexplorer_icos.Images.SetKeyName(0, "file-image.png");
-            this.IMGLIST_miniexplorer_icos.Images.SetKeyName(1, "file-cog.png");
-            this.IMGLIST_miniexplorer_icos.Images.SetKeyName(2, "file.png");
+            this.IMGLIST_miniexplorer_icos.Images.SetKeyName(1, "file.png");
+            this.IMGLIST_miniexplorer_icos.Images.SetKeyName(2, "file-cog.png");
             this.IMGLIST_miniexplorer_icos.Images.SetKeyName(3, "folder.png");
             this.IMGLIST_miniexplorer_icos.Images.SetKeyName(4, "keyboard-tab.png");
             this.IMGLIST_miniexplorer_icos.Images.SetKeyName(5, "1x1-00000000.png");
@@ -877,8 +882,8 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.wktitle.AutoSize = true;
             this.wktitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wktitle.ForeColor = System.Drawing.Color.White;
-            this.wktitle.Location = new System.Drawing.Point(666, 76);
+            this.wktitle.ForeColor = System.Drawing.Color.Silver;
+            this.wktitle.Location = new System.Drawing.Point(721, 76);
             this.wktitle.Name = "wktitle";
             this.wktitle.Size = new System.Drawing.Size(183, 15);
             this.wktitle.TabIndex = 18;
@@ -912,7 +917,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.TESTING_LABEL.AutoSize = true;
             this.TESTING_LABEL.BackColor = System.Drawing.Color.Silver;
             this.TESTING_LABEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.TESTING_LABEL.Location = new System.Drawing.Point(238, 680);
+            this.TESTING_LABEL.Location = new System.Drawing.Point(1, 0);
             this.TESTING_LABEL.Name = "TESTING_LABEL";
             this.TESTING_LABEL.Size = new System.Drawing.Size(44, 12);
             this.TESTING_LABEL.TabIndex = 22;
@@ -926,7 +931,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.BTN_COMPILE_EDITION);
             this.panel1.Controls.Add(this.BTN_Sel_GameFolder);
@@ -945,11 +950,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_COMPILE_EDITION.BorderThickness = 1;
             this.BTN_COMPILE_EDITION.CheckedState.Parent = this.BTN_COMPILE_EDITION;
             this.BTN_COMPILE_EDITION.CustomImages.Parent = this.BTN_COMPILE_EDITION;
-            this.BTN_COMPILE_EDITION.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_COMPILE_EDITION.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.BTN_COMPILE_EDITION.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.BTN_COMPILE_EDITION.ForeColor = System.Drawing.Color.Black;
+            this.BTN_COMPILE_EDITION.ForeColor = System.Drawing.Color.Silver;
             this.BTN_COMPILE_EDITION.HoverState.Parent = this.BTN_COMPILE_EDITION;
-            this.BTN_COMPILE_EDITION.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.cube;
+            this.BTN_COMPILE_EDITION.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_cube_96;
             this.BTN_COMPILE_EDITION.ImageSize = new System.Drawing.Size(22, 22);
             this.BTN_COMPILE_EDITION.Location = new System.Drawing.Point(306, 36);
             this.BTN_COMPILE_EDITION.Name = "BTN_COMPILE_EDITION";
@@ -967,11 +972,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_Sel_GameFolder.BorderThickness = 1;
             this.BTN_Sel_GameFolder.CheckedState.Parent = this.BTN_Sel_GameFolder;
             this.BTN_Sel_GameFolder.CustomImages.Parent = this.BTN_Sel_GameFolder;
-            this.BTN_Sel_GameFolder.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_Sel_GameFolder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.BTN_Sel_GameFolder.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.BTN_Sel_GameFolder.ForeColor = System.Drawing.Color.Black;
+            this.BTN_Sel_GameFolder.ForeColor = System.Drawing.Color.Silver;
             this.BTN_Sel_GameFolder.HoverState.Parent = this.BTN_Sel_GameFolder;
-            this.BTN_Sel_GameFolder.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder;
+            this.BTN_Sel_GameFolder.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_add_folder_96;
             this.BTN_Sel_GameFolder.ImageSize = new System.Drawing.Size(22, 22);
             this.BTN_Sel_GameFolder.Location = new System.Drawing.Point(157, 5);
             this.BTN_Sel_GameFolder.Name = "BTN_Sel_GameFolder";
@@ -986,13 +991,14 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.Btn4_Credits.Animated = true;
             this.Btn4_Credits.BackColor = System.Drawing.Color.Transparent;
+            this.Btn4_Credits.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.Btn4_Credits.BorderRadius = 2;
             this.Btn4_Credits.BorderThickness = 1;
             this.Btn4_Credits.CheckedState.Parent = this.Btn4_Credits;
             this.Btn4_Credits.CustomImages.Parent = this.Btn4_Credits;
-            this.Btn4_Credits.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Btn4_Credits.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Btn4_Credits.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Btn4_Credits.ForeColor = System.Drawing.Color.Black;
+            this.Btn4_Credits.ForeColor = System.Drawing.Color.Silver;
             this.Btn4_Credits.HoverState.Parent = this.Btn4_Credits;
             this.Btn4_Credits.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.TutorialIcon;
             this.Btn4_Credits.ImageSize = new System.Drawing.Size(30, 30);
@@ -1012,11 +1018,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_NWEDIT.BorderThickness = 1;
             this.BTN_NWEDIT.CheckedState.Parent = this.BTN_NWEDIT;
             this.BTN_NWEDIT.CustomImages.Parent = this.BTN_NWEDIT;
-            this.BTN_NWEDIT.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_NWEDIT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.BTN_NWEDIT.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.BTN_NWEDIT.ForeColor = System.Drawing.Color.Black;
+            this.BTN_NWEDIT.ForeColor = System.Drawing.Color.Silver;
             this.BTN_NWEDIT.HoverState.Parent = this.BTN_NWEDIT;
-            this.BTN_NWEDIT.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder_open_outline;
+            this.BTN_NWEDIT.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_folder_96;
             this.BTN_NWEDIT.ImageSize = new System.Drawing.Size(22, 22);
             this.BTN_NWEDIT.Location = new System.Drawing.Point(306, 5);
             this.BTN_NWEDIT.Name = "BTN_NWEDIT";
@@ -1034,11 +1040,11 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.BTN_SaveInitialWorkspace.BorderThickness = 1;
             this.BTN_SaveInitialWorkspace.CheckedState.Parent = this.BTN_SaveInitialWorkspace;
             this.BTN_SaveInitialWorkspace.CustomImages.Parent = this.BTN_SaveInitialWorkspace;
-            this.BTN_SaveInitialWorkspace.FillColor = System.Drawing.Color.Gainsboro;
+            this.BTN_SaveInitialWorkspace.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.BTN_SaveInitialWorkspace.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.BTN_SaveInitialWorkspace.ForeColor = System.Drawing.Color.Black;
+            this.BTN_SaveInitialWorkspace.ForeColor = System.Drawing.Color.Silver;
             this.BTN_SaveInitialWorkspace.HoverState.Parent = this.BTN_SaveInitialWorkspace;
-            this.BTN_SaveInitialWorkspace.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.folder_star;
+            this.BTN_SaveInitialWorkspace.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_folder_settings_96;
             this.BTN_SaveInitialWorkspace.ImageSize = new System.Drawing.Size(22, 22);
             this.BTN_SaveInitialWorkspace.Location = new System.Drawing.Point(157, 36);
             this.BTN_SaveInitialWorkspace.Name = "BTN_SaveInitialWorkspace";
@@ -1053,20 +1059,21 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.dbg_btn.Animated = true;
             this.dbg_btn.BackColor = System.Drawing.Color.Transparent;
+            this.dbg_btn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.dbg_btn.BorderRadius = 2;
             this.dbg_btn.BorderThickness = 1;
             this.dbg_btn.CheckedState.Parent = this.dbg_btn;
             this.dbg_btn.CustomImages.Parent = this.dbg_btn;
-            this.dbg_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dbg_btn.Font = new System.Drawing.Font("SCE-PS3 Rodin LATIN", 12F, System.Drawing.FontStyle.Bold);
-            this.dbg_btn.ForeColor = System.Drawing.Color.Black;
+            this.dbg_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.dbg_btn.Font = new System.Drawing.Font("SCE-PS3 Rodin LATIN", 9.11F);
+            this.dbg_btn.ForeColor = System.Drawing.Color.Silver;
             this.dbg_btn.HoverState.Parent = this.dbg_btn;
-            this.dbg_btn.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.application_cog_outline;
+            this.dbg_btn.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_settings_96;
             this.dbg_btn.ImageSize = new System.Drawing.Size(30, 30);
-            this.dbg_btn.Location = new System.Drawing.Point(828, 654);
+            this.dbg_btn.Location = new System.Drawing.Point(861, 656);
             this.dbg_btn.Name = "dbg_btn";
             this.dbg_btn.ShadowDecoration.Parent = this.dbg_btn;
-            this.dbg_btn.Size = new System.Drawing.Size(143, 39);
+            this.dbg_btn.Size = new System.Drawing.Size(110, 39);
             this.dbg_btn.TabIndex = 26;
             this.dbg_btn.Text = "★ Debug";
             this.dbg_btn.UseTransparentBackground = true;
@@ -1076,15 +1083,16 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.Btn3_ExitAll.Animated = true;
             this.Btn3_ExitAll.BackColor = System.Drawing.Color.Transparent;
+            this.Btn3_ExitAll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.Btn3_ExitAll.BorderRadius = 2;
             this.Btn3_ExitAll.BorderThickness = 1;
             this.Btn3_ExitAll.CheckedState.Parent = this.Btn3_ExitAll;
             this.Btn3_ExitAll.CustomImages.Parent = this.Btn3_ExitAll;
-            this.Btn3_ExitAll.FillColor = System.Drawing.Color.Gainsboro;
+            this.Btn3_ExitAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Btn3_ExitAll.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Btn3_ExitAll.ForeColor = System.Drawing.Color.Black;
+            this.Btn3_ExitAll.ForeColor = System.Drawing.Color.Silver;
             this.Btn3_ExitAll.HoverState.Parent = this.Btn3_ExitAll;
-            this.Btn3_ExitAll.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.close_box_multiple;
+            this.Btn3_ExitAll.Image = global::Minecraft_LCE_Tweaker_Studio.Properties.Resources.icons8_close_program_96;
             this.Btn3_ExitAll.ImageSize = new System.Drawing.Size(40, 40);
             this.Btn3_ExitAll.Location = new System.Drawing.Point(12, 656);
             this.Btn3_ExitAll.Name = "Btn3_ExitAll";
@@ -1099,19 +1107,37 @@ namespace Minecraft_LCE_Tweaker_Studio
             // 
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Mojangles", 15F);
+            this.label1.Font = new System.Drawing.Font("Mojangles", 14F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(665, 656);
+            this.label1.Location = new System.Drawing.Point(669, 652);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 24);
+            this.label1.Size = new System.Drawing.Size(132, 24);
             this.label1.TabIndex = 27;
             this.label1.Text = "RMB: Options";
             // 
-            // Main_AppCenter
+            // _IcosExplorer
+            // 
+            this._IcosExplorer.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_IcosExplorer.ImageStream")));
+            this._IcosExplorer.TransparentColor = System.Drawing.Color.Transparent;
+            this._IcosExplorer.Images.SetKeyName(0, "icons8-document-96.png");
+            this._IcosExplorer.Images.SetKeyName(1, "icons8-terms-and-conditions-96.png");
+            this._IcosExplorer.Images.SetKeyName(2, "icons8-txt-96.png");
+            this._IcosExplorer.Images.SetKeyName(3, "icons8-file-configuration-96.png");
+            this._IcosExplorer.Images.SetKeyName(4, "icons8-insert-page-96.png");
+            this._IcosExplorer.Images.SetKeyName(5, "icons8-documents-96.png");
+            this._IcosExplorer.Images.SetKeyName(6, "file-cog.png");
+            this._IcosExplorer.Images.SetKeyName(7, "file-image.png");
+            this._IcosExplorer.Images.SetKeyName(8, "icons8-slack-96.png");
+            this._IcosExplorer.Images.SetKeyName(9, "icons8-new-file-96.png");
+            this._IcosExplorer.Images.SetKeyName(10, "icons8-labels-96.png");
+            this._IcosExplorer.Images.SetKeyName(11, "icons8-settings-96.png");
+            this._IcosExplorer.Images.SetKeyName(12, "icons8-musical-notes-96.png");
+            // 
+            // MainCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(977, 705);
             this.Controls.Add(this.dbg_btn);
             this.Controls.Add(this.label1);
@@ -1129,7 +1155,7 @@ namespace Minecraft_LCE_Tweaker_Studio
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Main_AppCenter";
+            this.Name = "MainCenter";
             this.Text = "MLCE Modder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LB_Filename_FormClosing);
             this.Load += new System.EventHandler(this.Main_AppCenter_Load);
@@ -1214,5 +1240,6 @@ namespace Minecraft_LCE_Tweaker_Studio
         private Guna.UI2.WinForms.Guna2Button BTN_PCK_TOOL;
         private Guna.UI2.WinForms.Guna2Button dbg_btn;
         public System.Windows.Forms.Timer CommonTimer;
+        private System.Windows.Forms.ImageList _IcosExplorer;
     }
 }

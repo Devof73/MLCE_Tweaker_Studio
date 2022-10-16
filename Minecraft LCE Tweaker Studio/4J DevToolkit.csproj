@@ -70,13 +70,38 @@
     <OutputPath>bin\MLCE Tweaker Release 4.5\</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <DefineConstants>DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MLCE 4.6|AnyCPU'">
     <OutputPath>bin\MLCE 4.6\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>4j.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Controls.2.2.5\lib\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="CSAudioPlayer, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CSAudioPlayer.1.1.2\lib\net461\CSAudioPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="DarkUI, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DarkUI.2.0.2\lib\DarkUI.dll</HintPath>
     </Reference>
     <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
@@ -114,6 +139,10 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SharpAvi, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpAvi.3.0.1\lib\net45\SharpAvi.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Desktop\Escritorios\Escritorio 1\DownCraft RTM Premium V2\Siticone.UI.dll</HintPath>
     </Reference>
@@ -127,6 +156,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -136,6 +166,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="about_help.cs">
@@ -149,6 +180,12 @@
     </Compile>
     <Compile Include="dbgform.Designer.cs">
       <DependentUpon>dbgform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\API\AForgeCC_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\API\AForgeCC_main.designer.cs">
+      <DependentUpon>AForgeCC_main.cs</DependentUpon>
     </Compile>
     <Compile Include="Expoint\API\ps3_webman\webMAN.cs" />
     <Compile Include="Expoint\ARC\ArcFile.cs" />
@@ -208,18 +245,31 @@
     <Compile Include="Expoint\COL\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expoint\FadeForm.cs" />
     <Compile Include="Expoint\Filebase.cs" />
     <Compile Include="Expoint\FileData.cs" />
     <Compile Include="Expoint\FileOutput.cs" />
     <Compile Include="Expoint\File_Transfer_Protocol.cs" />
+    <Compile Include="Expoint\FJUI\Forms\AskToInvertRedBlueOnReplacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\AskToInvertRedBlueOnReplacement.Designer.cs">
+      <DependentUpon>AskToInvertRedBlueOnReplacement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Expoint\FJUI\Forms\ChangableMenuListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Expoint\FJUI\Forms\FUI_Editor_Main.cs">
+    <Compile Include="Expoint\FJUI\Forms\EditorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Expoint\FJUI\Forms\FUI_Editor_Main.Designer.cs">
-      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    <Compile Include="Expoint\FJUI\Forms\EditorGUI.Designer.cs">
+      <DependentUpon>EditorGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\HudViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expoint\FJUI\Forms\HudViewer.Designer.cs">
+      <DependentUpon>HudViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Expoint\FJUI\Forms\PicViewer.cs">
       <SubType>Form</SubType>
@@ -227,6 +277,7 @@
     <Compile Include="Expoint\FJUI\Forms\PicViewer.designer.cs">
       <DependentUpon>PicViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expoint\FJUI\Forms\MLCE_RE.cs" />
     <Compile Include="Expoint\FJUI\FuiImageInfo.cs" />
     <Compile Include="Expoint\FJUI\Utils\ArrayUtils.cs" />
     <Compile Include="Expoint\FJUI\Utils\FuiUtils.cs" />
@@ -315,6 +366,9 @@
     <EmbeddedResource Include="dbgform.resx">
       <DependentUpon>dbgform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\API\AForgeCC_main.resx">
+      <DependentUpon>AForgeCC_main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Expoint\ARC\ResourceInputOutputForm.resx">
       <DependentUpon>ResourceInputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,11 +397,17 @@
     <EmbeddedResource Include="Expoint\COL\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Expoint\FJUI\Forms\FUI_Editor_Main.ja-JP.resx">
-      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\AskToInvertRedBlueOnReplacement.resx">
+      <DependentUpon>AskToInvertRedBlueOnReplacement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Expoint\FJUI\Forms\FUI_Editor_Main.resx">
-      <DependentUpon>FUI_Editor_Main.cs</DependentUpon>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\EditorGUI.ja-JP.resx">
+      <DependentUpon>EditorGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\EditorGUI.resx">
+      <DependentUpon>EditorGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expoint\FJUI\Forms\HudViewer.resx">
+      <DependentUpon>HudViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Expoint\FJUI\Forms\PicViewer.resx">
       <DependentUpon>PicViewer.cs</DependentUpon>
@@ -446,6 +506,7 @@
     <None Include="Resources\archive-cog.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="4j.ico" />
     <Content Include="Expoint\dannyskey.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -570,6 +631,21 @@
     <None Include="Resources\LOC ICON.png" />
     <None Include="Resources\MODELS ICON.png" />
     <None Include="Resources\PCK ICON.png" />
+    <None Include="Resources\icons8-frames-96.png" />
+    <None Include="Resources\icons8-translation-96.png" />
+    <None Include="Resources\icons8-multiline-text-96.png" />
+    <None Include="Resources\icons8-layers-96.png" />
+    <None Include="Resources\icons8-cardboard-box-96.png" />
+    <None Include="Resources\icons8-fill-color-96.png" />
+    <None Include="Resources\icons8-invert-colors-96.png" />
+    <None Include="Resources\icons8-musical-notes-96.png" />
+    <None Include="Resources\icons8-clipboard-96.png" />
+    <None Include="Resources\icons8-settings-96.png" />
+    <None Include="Resources\icons8-close-program-96.png" />
+    <None Include="Resources\icons8-cube-96.png" />
+    <None Include="Resources\icons8-folder-settings-96.png" />
+    <None Include="Resources\icons8-folder-96.png" />
+    <None Include="Resources\icons8-add-folder-96.png" />
     <Content Include="Resources\PCK-Studio_Logo.ico" />
     <None Include="Resources\pckCenterHeader.png" />
     <None Include="Resources\pckClosed.bmp" />

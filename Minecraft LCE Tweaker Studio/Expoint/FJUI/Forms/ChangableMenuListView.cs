@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace FuiEditor.Forms
@@ -16,7 +11,7 @@ namespace FuiEditor.Forms
 
             int selectedCount = SelectedIndices.Count;
 
-            if(selectedCount > 1)
+            if (selectedCount > 1)
             {
                 ContextMenuStrip = MultiSelectedContextMenuStrip;
             }

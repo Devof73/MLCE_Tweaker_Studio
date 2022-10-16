@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using System.IO; 
 
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.Better_Forms
 {
     public partial class form_backups : Form
     {
         internal string BackupPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MLCE Modding\\compilation_backups";
-        internal List<DirectoryInfo> BackupDirectories = new List<DirectoryInfo>(); 
+        internal List<DirectoryInfo> BackupDirectories = new List<DirectoryInfo>();
         public form_backups()
         {
             InitializeComponent();

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
 {
     internal class LceTerrain
@@ -321,7 +318,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             // Contributor Fernz
 
         };
-        public Bitmap BuildTerrain(string workingPath,bool writing = false, string filename = "")
+        public Bitmap BuildTerrain(string workingPath, bool writing = false, string filename = "")
         {
             if (filename.Length == 0 || writing == false)
             {
@@ -329,7 +326,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
             }
             return TexDrawAllPath(workingPath, writing, filename);
         }
-      
+
         private Bitmap TexDrawAllPath(string workingPath, bool write, string filename)
         {
             bool shouldwrite = write == true && filename != null == true && filename.Length > 5;
@@ -449,7 +446,7 @@ namespace Minecraft_LCE_Tweaker_Studio.Expoint.ITC
         /// <returns></returns>
         internal List<string> OnBuildSort(string[] RequiredFileNames, string workingPath)
         {
-           
+
             if (Directory.Exists(workingPath))
             {
                 List<string> ReqFnsList = new List<string>();
